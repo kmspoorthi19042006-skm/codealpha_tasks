@@ -138,7 +138,6 @@ npm.cmd run dev
 •REST API based backend
 
 ->Internship
-
 Developed as Task 1 of the CodeAlpha Full Stack Development Internship – September 2026 Batch.
 
 ->Author
