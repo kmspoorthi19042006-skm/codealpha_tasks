@@ -1,0 +1,549 @@
+/* =========================================================
+   MY TASKS PAGE
+========================================================= */
+
+.my-tasks-layout {
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.my-tasks-layout .main-content {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.tasks-header {
+    margin-bottom: 30px;
+}
+
+.tasks-heading {
+    max-width: 700px;
+}
+
+.tasks-header h1 {
+    margin: 5px 0 7px;
+    font-size: 32px;
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+}
+
+.tasks-subtitle {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.task-summary {
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-bottom: 28px;
+}
+
+.summary-card {
+    min-width: 0;
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        16px;
+
+    padding:
+        20px;
+}
+
+.summary-label {
+    display: block;
+
+    margin-bottom:
+        8px;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        12px;
+
+    font-weight:
+        500;
+}
+
+.summary-card strong {
+    display: block;
+
+    color:
+        var(--text-primary);
+
+    font-size:
+        28px;
+
+    line-height:
+        1;
+}
+
+
+/* =========================================================
+   TASK SECTION
+========================================================= */
+
+.tasks-section {
+    width: 100%;
+    box-sizing: border-box;
+
+    background:
+        var(--surface);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        20px;
+
+    padding:
+        24px;
+}
+
+
+.section-heading {
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    margin-bottom:
+        20px;
+}
+
+.section-heading h2 {
+    margin:
+        0 0 5px;
+
+    font-size:
+        20px;
+}
+
+.section-heading p {
+    margin:
+        0;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        13px;
+}
+
+.task-total {
+    flex-shrink: 0;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        13px;
+}
+
+
+/* =========================================================
+   TASK LIST
+========================================================= */
+
+.tasks-list {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        12px;
+}
+
+
+/* =========================================================
+   TASK CARD
+========================================================= */
+
+.task-card {
+    width: 100%;
+    box-sizing: border-box;
+
+    background:
+        #ffffff;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        14px;
+
+    padding:
+        18px;
+
+    transition:
+        transform 160ms ease,
+        box-shadow 160ms ease;
+}
+
+.task-card:hover {
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 8px 25px rgba(
+            0,
+            0,
+            0,
+            0.06
+        );
+}
+
+
+.task-top {
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        flex-start;
+
+    gap:
+        18px;
+}
+
+.task-title {
+    margin:
+        0;
+
+    color:
+        var(--text-primary);
+
+    font-size:
+        16px;
+
+    font-weight:
+        700;
+}
+
+.task-description {
+    margin:
+        7px 0 0;
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.5;
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.task-meta {
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    margin-top:
+        15px;
+}
+
+
+.task-badge {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    padding:
+        5px 9px;
+
+    border-radius:
+        7px;
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+}
+
+
+/* STATUS */
+
+.task-status-todo {
+    background:
+        #f3f4f6;
+
+    color:
+        #374151;
+}
+
+.task-status-progress {
+    background:
+        #eff6ff;
+
+    color:
+        #2563eb;
+}
+
+.task-status-review {
+    background:
+        #fff7ed;
+
+    color:
+        #c2410c;
+}
+
+.task-status-done {
+    background:
+        #ecfdf5;
+
+    color:
+        #047857;
+}
+
+
+/* PRIORITY */
+
+.task-priority-low {
+    background:
+        #f3f4f6;
+
+    color:
+        #4b5563;
+}
+
+.task-priority-medium {
+    background:
+        #eff6ff;
+
+    color:
+        #2563eb;
+}
+
+.task-priority-high {
+    background:
+        #fff7ed;
+
+    color:
+        #c2410c;
+}
+
+.task-priority-urgent {
+    background:
+        #fef2f2;
+
+    color:
+        #b91c1c;
+}
+
+
+/* =========================================================
+   PROJECT / DEADLINE
+========================================================= */
+
+.task-project {
+    margin-top:
+        13px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        12px;
+}
+
+.task-project strong {
+    color:
+        var(--text-secondary);
+}
+
+
+.task-deadline {
+    margin-top:
+        8px;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        12px;
+}
+
+.task-deadline.overdue {
+    color:
+        #b91c1c;
+
+    font-weight:
+        600;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-tasks {
+    padding:
+        50px 20px;
+
+    border:
+        1px dashed var(--border);
+
+    border-radius:
+        14px;
+
+    text-align:
+        center;
+
+    color:
+        var(--text-secondary);
+}
+
+.empty-tasks h3 {
+    margin:
+        0 0 7px;
+
+    color:
+        var(--text-primary);
+}
+
+.empty-tasks p {
+    margin:
+        0;
+
+    font-size:
+        13px;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.task-error {
+    padding:
+        15px;
+
+    border:
+        1px solid #fecaca;
+
+    background:
+        #fef2f2;
+
+    color:
+        #b91c1c;
+
+    border-radius:
+        12px;
+
+    font-size:
+        13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .task-summary {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .tasks-header h1 {
+        font-size:
+            28px;
+    }
+
+    .tasks-section {
+        padding:
+            18px;
+    }
+
+    .section-heading {
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+    }
+
+    .task-top {
+        flex-direction:
+            column;
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    .task-summary {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap:
+            10px;
+    }
+
+    .summary-card {
+        padding:
+            15px;
+    }
+
+    .summary-card strong {
+        font-size:
+            24px;
+    }
+}

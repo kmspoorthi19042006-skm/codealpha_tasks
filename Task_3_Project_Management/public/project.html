@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project Workspace — FlowPilot</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/project.css">
+
+    <style>
+        #taskModal[hidden],
+        #memberModal[hidden],
+        #commentModal[hidden] {
+            display: none !important;
+        }
+
+        .team-section-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .member-search-results {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 280px;
+            overflow-y: auto;
+        }
+
+        .member-search-result {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: left;
+            transition: 0.15s ease;
+        }
+
+        .member-search-result:hover {
+            border-color: #111827;
+            background: #f9fafb;
+        }
+
+        .member-search-result.selected {
+            border-color: #111827;
+            background: #f3f4f6;
+        }
+
+        .member-search-info {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .member-search-name {
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .member-search-username,
+        .member-search-email {
+            color: #6b7280;
+            font-size: 13px;
+            margin-top: 2px;
+        }
+
+        .member-search-empty {
+            padding: 18px;
+            text-align: center;
+            color: #6b7280;
+            border: 1px dashed #d1d5db;
+            border-radius: 12px;
+        }
+
+        .selected-member-preview {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 12px;
+            background: #f3f4f6;
+            color: #111827;
+            display: none;
+        }
+
+        .selected-member-preview.visible {
+            display: block;
+        }
+
+        /* =====================================================
+           COMMENTS MODAL
+        ===================================================== */
+
+        .comments-modal {
+            max-width: 620px;
+            width: 100%;
+        }
+
+        .comments-modal-task-title {
+            margin-top: 5px;
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+        .comments-modal-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 380px;
+            overflow-y: auto;
+            padding-right: 3px;
+        }
+
+        .comment-item {
+            display: flex;
+            gap: 10px;
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        .comment-content {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .comment-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .comment-author {
+            font-size: 13px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .comment-date {
+            font-size: 11px;
+            color: #9ca3af;
+            white-space: nowrap;
+        }
+
+        .comment-body {
+            margin-top: 5px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #4b5563;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .comment-delete {
+            margin-top: 6px;
+            border: 0;
+            background: transparent;
+            color: #dc2626;
+            font-size: 11px;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .comment-delete:hover {
+            text-decoration: underline;
+        }
+
+        .comments-empty {
+            padding: 18px;
+            text-align: center;
+            color: #6b7280;
+            border: 1px dashed #d1d5db;
+            border-radius: 12px;
+        }
+
+        .comment-form {
+            margin-top: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .comment-form textarea {
+            width: 100%;
+            min-height: 82px;
+            resize: vertical;
+        }
+
+        .comment-form-footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* =====================================================
+           TASK CARD ACTIONS
+        ===================================================== */
+
+        .task-card-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .task-comment-button {
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            color: #6b7280;
+            border-radius: 8px;
+            padding: 5px 8px;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        .task-comment-button:hover {
+            border-color: #111827;
+            color: #111827;
+            background: #f9fafb;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <a href="/projects.html" class="back-link">
+                    <span>←</span>
+                    <span>Projects</span>
+                </a>
+
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="project-live-indicator">
+                    <span class="live-dot"></span>
+                    Live workspace
+                </div>
+
+            </div>
+
+        </header>
+
+        <div class="page-container project-workspace">
+
+            <section class="workspace-header">
+
+                <div class="workspace-header-main">
+
+                    <div class="workspace-title-row">
+
+                        <div id="projectColor"
+                             class="workspace-project-mark">
+                            F
+                        </div>
+
+                        <div>
+
+                            <div class="workspace-eyebrow">
+                                PROJECT WORKSPACE
+                            </div>
+
+                            <h1 id="projectName">
+                                Loading project...
+                            </h1>
+
+                        </div>
+
+                    </div>
+
+                    <p id="projectDescription"
+                       class="workspace-description">
+                        Loading project information...
+                    </p>
+
+                    <div class="workspace-meta">
+
+                        <span id="projectStatusBadge"
+                              class="status-badge status-planning">
+                            Planning
+                        </span>
+
+                        <span class="workspace-meta-item">
+                            <span>◷</span>
+                            <span id="projectDeadline">
+                                No deadline
+                            </span>
+                        </span>
+
+                        <span class="workspace-meta-item">
+                            <span>◉</span>
+                            <span id="memberCount">
+                                0 members
+                            </span>
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="workspace-header-actions">
+
+                    <button type="button"
+                            class="btn btn-primary"
+                            id="headerAddTaskBtn">
+                        + Add task
+                    </button>
+
+                </div>
+
+            </section>
+
+            <section class="health-strip">
+
+                <div class="health-card health-main">
+
+                    <div class="health-card-top">
+
+                        <div>
+
+                            <span class="health-label">
+                                PROJECT HEALTH
+                            </span>
+
+                            <strong id="healthText">
+                                Calculating...
+                            </strong>
+
+                        </div>
+
+                        <div id="healthScore"
+                             class="health-score">
+                            —
+                        </div>
+
+                    </div>
+
+                    <div class="health-progress">
+
+                        <div id="healthProgress"
+                             class="health-progress-fill">
+                        </div>
+
+                    </div>
+
+                    <div class="health-caption">
+                        Based on task completion and overdue work
+                    </div>
+
+                </div>
+
+                <div class="health-card">
+
+                    <span class="health-label">
+                        TOTAL TASKS
+                    </span>
+
+                    <strong id="totalTasks">
+                        0
+                    </strong>
+
+                    <span class="health-small">
+                        Across this project
+                    </span>
+
+                </div>
+
+                <div class="health-card">
+
+                    <span class="health-label">
+                        COMPLETED
+                    </span>
+
+                    <strong id="completedTasks">
+                        0
+                    </strong>
+
+                    <span class="health-small">
+                        Finished tasks
+                    </span>
+
+                </div>
+
+                <div class="health-card">
+
+                    <span class="health-label">
+                        OVERDUE
+                    </span>
+
+                    <strong id="overdueTasks">
+                        0
+                    </strong>
+
+                    <span class="health-small">
+                        Need attention
+                    </span>
+
+                </div>
+
+            </section>
+
+            <section class="board-section">
+
+                <div class="board-header">
+
+                    <div>
+
+                        <div class="section-eyebrow">
+                            WORKSPACE
+                        </div>
+
+                        <h2>
+                            Kanban board
+                        </h2>
+
+                        <p>
+                            Organize work, assign ownership and move tasks
+                            through the project lifecycle.
+                        </p>
+
+                    </div>
+
+                    <div class="board-header-right">
+
+                        <div class="board-view-label">
+                            BOARD
+                        </div>
+
+                        <button type="button"
+                                class="btn btn-secondary btn-small"
+                                id="refreshBoardBtn">
+                            ↻ Refresh
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div id="kanbanBoard"
+                     class="kanban-board">
+
+                    <div class="kanban-column"
+                         data-status="todo">
+
+                        <div class="column-header">
+
+                            <div class="column-title-wrap">
+
+                                <span class="column-dot dot-todo"></span>
+
+                                <h3>To do</h3>
+
+                                <span id="count-todo"
+                                      class="column-count">
+                                    0
+                                </span>
+
+                            </div>
+
+                            <button type="button"
+                                    class="column-add"
+                                    data-add-status="todo">
+                                +
+                            </button>
+
+                        </div>
+
+                        <div id="column-todo"
+                             class="task-list"
+                             data-status="todo">
+                        </div>
+
+                    </div>
+
+                    <div class="kanban-column"
+                         data-status="in_progress">
+
+                        <div class="column-header">
+
+                            <div class="column-title-wrap">
+
+                                <span class="column-dot dot-progress"></span>
+
+                                <h3>In progress</h3>
+
+                                <span id="count-in_progress"
+                                      class="column-count">
+                                    0
+                                </span>
+
+                            </div>
+
+                            <button type="button"
+                                    class="column-add"
+                                    data-add-status="in_progress">
+                                +
+                            </button>
+
+                        </div>
+
+                        <div id="column-in_progress"
+                             class="task-list"
+                             data-status="in_progress">
+                        </div>
+
+                    </div>
+
+                    <div class="kanban-column"
+                         data-status="in_review">
+
+                        <div class="column-header">
+
+                            <div class="column-title-wrap">
+
+                                <span class="column-dot dot-review"></span>
+
+                                <h3>In review</h3>
+
+                                <span id="count-in_review"
+                                      class="column-count">
+                                    0
+                                </span>
+
+                            </div>
+
+                            <button type="button"
+                                    class="column-add"
+                                    data-add-status="in_review">
+                                +
+                            </button>
+
+                        </div>
+
+                        <div id="column-in_review"
+                             class="task-list"
+                             data-status="in_review">
+                        </div>
+
+                    </div>
+
+                    <div class="kanban-column"
+                         data-status="done">
+
+                        <div class="column-header">
+
+                            <div class="column-title-wrap">
+
+                                <span class="column-dot dot-done"></span>
+
+                                <h3>Done</h3>
+
+                                <span id="count-done"
+                                      class="column-count">
+                                    0
+                                </span>
+
+                            </div>
+
+                            <button type="button"
+                                    class="column-add"
+                                    data-add-status="done">
+                                +
+                            </button>
+
+                        </div>
+
+                        <div id="column-done"
+                             class="task-list"
+                             data-status="done">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="workspace-team-section">
+
+                <div class="team-section-header">
+
+                    <div>
+
+                        <div class="section-eyebrow">
+                            COLLABORATION
+                        </div>
+
+                        <h2>
+                            Project team
+                        </h2>
+
+                        <p>
+                            People currently working on this project.
+                        </p>
+
+                    </div>
+
+                    <div class="team-section-actions">
+
+                        <button type="button"
+                                class="btn btn-secondary btn-small"
+                                id="addMemberBtn">
+                            + Add member
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div id="teamList"
+                     class="team-list">
+
+                    <div class="workspace-loading">
+                        Loading team...
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     EDIT / CREATE TASK MODAL
+===================================================== -->
+
+<div id="taskModal"
+     class="modal-overlay"
+     hidden>
+
+    <div class="modal-card task-modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <div class="modal-eyebrow">
+                    TASK
+                </div>
+
+                <h2 id="taskModalTitle">
+                    Create task
+                </h2>
+
+            </div>
+
+            <button type="button"
+                    class="modal-close"
+                    id="closeTaskModal">
+                ×
+            </button>
+
+        </div>
+
+        <form id="taskForm">
+
+            <input type="hidden"
+                   id="taskId">
+
+            <div class="form-group">
+
+                <label for="taskTitle">
+                    Task title
+                </label>
+
+                <input type="text"
+                       id="taskTitle"
+                       maxlength="200"
+                       placeholder="e.g. Design landing page"
+                       required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="taskDescription">
+                    Description
+                </label>
+
+                <textarea id="taskDescription"
+                          rows="4"
+                          maxlength="2000"
+                          placeholder="Describe what needs to be done..."></textarea>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="taskStatus">
+                        Status
+                    </label>
+
+                    <select id="taskStatus">
+
+                        <option value="todo">To do</option>
+                        <option value="in_progress">In progress</option>
+                        <option value="in_review">In review</option>
+                        <option value="done">Done</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="taskPriority">
+                        Priority
+                    </label>
+
+                    <select id="taskPriority">
+
+                        <option value="low">Low</option>
+
+                        <option value="medium" selected>
+                            Medium
+                        </option>
+
+                        <option value="high">High</option>
+                        <option value="urgent">Urgent</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="taskAssignee">
+                        Assignee
+                    </label>
+
+                    <select id="taskAssignee">
+
+                        <option value="">
+                            Unassigned
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="taskDeadline">
+                        Deadline
+                    </label>
+
+                    <input type="date"
+                           id="taskDeadline">
+
+                </div>
+
+            </div>
+
+            <div id="taskModalError"
+                 class="form-error"
+                 hidden>
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="btn btn-danger-outline"
+                        id="deleteTaskBtn"
+                        hidden>
+                    Delete task
+                </button>
+
+                <div class="modal-footer-right">
+
+                    <button type="button"
+                            class="btn btn-secondary"
+                            id="cancelTaskBtn">
+                        Cancel
+                    </button>
+
+                    <button type="submit"
+                            class="btn btn-primary"
+                            id="saveTaskBtn">
+                        Create task
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     COMMENTS MODAL
+===================================================== -->
+
+<div id="commentModal"
+     class="modal-overlay"
+     hidden>
+
+    <div class="modal-card comments-modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <div class="modal-eyebrow">
+                    DISCUSSION
+                </div>
+
+                <h2>
+                    Comments
+                </h2>
+
+                <div id="commentModalTaskTitle"
+                     class="comments-modal-task-title">
+                    Task
+                </div>
+
+            </div>
+
+            <button type="button"
+                    class="modal-close"
+                    id="closeCommentModal">
+                ×
+            </button>
+
+        </div>
+
+        <div id="commentsList"
+             class="comments-modal-list">
+
+            <div class="comments-empty">
+                No comments yet.
+            </div>
+
+        </div>
+
+        <div class="comment-form">
+
+            <textarea id="commentInput"
+                      maxlength="1000"
+                      placeholder="Write a comment..."></textarea>
+
+            <div class="comment-form-footer">
+
+                <button type="button"
+                        class="btn btn-primary btn-small"
+                        id="addCommentBtn">
+                    Add comment
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <div id="taskCommentsCount"
+                 class="task-comments-count">
+                0 comments
+            </div>
+
+            <div class="modal-footer-right">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        id="cancelCommentBtn">
+                    Close
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ADD MEMBER MODAL
+===================================================== -->
+
+<div id="memberModal"
+     class="modal-overlay"
+     hidden>
+
+    <div class="modal-card">
+
+        <div class="modal-header">
+
+            <div>
+
+                <div class="modal-eyebrow">
+                    COLLABORATION
+                </div>
+
+                <h2>
+                    Add project member
+                </h2>
+
+            </div>
+
+            <button type="button"
+                    class="modal-close"
+                    id="closeMemberModal">
+                ×
+            </button>
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="memberSearchInput">
+                Search user
+            </label>
+
+            <input type="text"
+                   id="memberSearchInput"
+                   autocomplete="off"
+                   placeholder="Search by name, username or email">
+
+        </div>
+
+        <div id="memberSearchResults"
+             class="member-search-results">
+
+            <div class="member-search-empty">
+                Start typing to search for a user.
+            </div>
+
+        </div>
+
+        <div id="selectedMemberPreview"
+             class="selected-member-preview">
+        </div>
+
+        <div id="memberModalError"
+             class="form-error"
+             hidden>
+        </div>
+
+        <div class="modal-footer">
+
+            <div></div>
+
+            <div class="modal-footer-right">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        id="cancelMemberBtn">
+                    Cancel
+                </button>
+
+                <button type="button"
+                        class="btn btn-primary"
+                        id="saveMemberBtn"
+                        disabled>
+                    Add member
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/api.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/project.js"></script>
+
+</body>
+</html>

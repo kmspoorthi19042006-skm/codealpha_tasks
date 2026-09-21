@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Chat • Vibe</title>
+
+    <meta
+        name="description"
+        content="Real-time messaging on Vibe."
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/chat.css"
+    >
+</head>
+
+
+<body class="chat-page">
+
+    <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
+
+    <header class="chat-topbar">
+
+        <div class="chat-brand">
+
+            <a
+                href="/shorts.html"
+                class="brand-logo"
+            >
+                Vibe
+            </a>
+
+            <span class="chat-divider">
+                /
+            </span>
+
+            <span class="chat-heading">
+                Messages
+            </span>
+
+        </div>
+
+
+        <div class="chat-top-actions">
+
+            <a
+                href="/shorts.html"
+                class="icon-btn"
+                title="Back to Vibe"
+                aria-label="Back to Vibe"
+            >
+                <i class="fa-solid fa-house"></i>
+            </a>
+
+
+            <button
+                type="button"
+                class="chat-user-avatar"
+                id="currentUserAvatar"
+                title="My Profile"
+                aria-label="My Profile"
+            >
+                <span id="currentUserInitials">
+                    U
+                </span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN CHAT LAYOUT
+    ====================================================== -->
+
+    <main class="chat-layout">
+
+
+        <!-- =================================================
+             CONVERSATIONS SIDEBAR
+        ================================================== -->
+
+        <aside class="chat-sidebar">
+
+            <div class="chat-sidebar-header">
+
+                <div>
+
+                    <h1>
+                        Messages
+                    </h1>
+
+                    <p>
+                        Connect with people on Vibe
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="icon-btn"
+                    id="newChatBtn"
+                    title="New conversation"
+                    aria-label="New conversation"
+                >
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+
+            </div>
+
+
+            <!-- Search -->
+
+            <div class="chat-search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="userSearchInput"
+                    placeholder="Search people..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <!-- User search results -->
+
+            <div
+                class="chat-search-results hidden"
+                id="searchResults"
+            >
+            </div>
+
+
+            <!-- Conversations -->
+
+            <div
+                class="conversation-list"
+                id="conversationList"
+            >
+
+                <div class="chat-sidebar-empty">
+
+                    <i class="fa-regular fa-comments"></i>
+
+                    <h3>
+                        No conversations yet
+                    </h3>
+
+                    <p>
+                        Start a conversation with someone on Vibe.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             CHAT WINDOW
+        ================================================== -->
+
+        <section class="chat-window">
+
+
+            <!-- Empty state -->
+
+            <div
+                class="chat-welcome"
+                id="chatWelcome"
+            >
+
+                <div class="chat-welcome-icon">
+
+                    <i class="fa-regular fa-paper-plane"></i>
+
+                </div>
+
+                <h2>
+                    Your conversations
+                </h2>
+
+                <p>
+                    Choose someone from the sidebar to start chatting.
+                </p>
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                    id="startChatBtn"
+                >
+                    <i class="fa-solid fa-plus"></i>
+                    Start a conversation
+                </button>
+
+            </div>
+
+
+            <!-- Active conversation -->
+
+            <div
+                class="active-chat hidden"
+                id="activeChat"
+            >
+
+
+                <!-- =================================================
+                     CHAT HEADER
+                ================================================== -->
+
+                <header class="active-chat-header">
+
+                    <div class="active-chat-user">
+
+                        <div
+                            class="chat-avatar"
+                            id="activeUserAvatar"
+                        >
+                            <span id="activeUserInitials">
+                                U
+                            </span>
+                        </div>
+
+
+                        <div>
+
+                            <h2 id="activeUserName">
+                                User
+                            </h2>
+
+                            <p id="activeUserUsername">
+                                @username
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="active-chat-actions">
+
+                        <button
+                            type="button"
+                            class="icon-btn"
+                            id="viewProfileBtn"
+                            title="View profile"
+                            aria-label="View profile"
+                        >
+                            <i class="fa-regular fa-user"></i>
+                        </button>
+
+
+                        <!-- Delete entire conversation -->
+
+                        <button
+                            type="button"
+                            class="icon-btn danger-icon-btn"
+                            id="deleteChatBtn"
+                            title="Delete conversation"
+                            aria-label="Delete conversation"
+                        >
+                            <i class="fa-regular fa-trash-can"></i>
+                        </button>
+
+                    </div>
+
+                </header>
+
+
+                <!-- =================================================
+                     MESSAGES
+                ================================================== -->
+
+                <div
+                    class="messages-container"
+                    id="messagesContainer"
+                >
+
+                    <div
+                        class="messages-loading"
+                        id="messagesLoading"
+                    >
+                        <i class="fa-solid fa-circle-notch fa-spin"></i>
+                        Loading messages...
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     TYPING INDICATOR
+                ================================================== -->
+
+                <div
+                    class="typing-indicator hidden"
+                    id="typingIndicator"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <span>
+                        typing...
+                    </span>
+
+                </div>
+
+
+                <!-- =================================================
+                     MESSAGE COMPOSER
+                ================================================== -->
+
+                <form
+                    class="message-composer"
+                    id="messageForm"
+                >
+
+                    <button
+                        type="button"
+                        class="composer-icon"
+                        id="emojiBtn"
+                        title="Emoji"
+                        aria-label="Emoji"
+                    >
+                        <i class="fa-regular fa-face-smile"></i>
+                    </button>
+
+
+                    <textarea
+                        id="messageInput"
+                        rows="1"
+                        maxlength="2000"
+                        placeholder="Write a message..."
+                        autocomplete="off"
+                    ></textarea>
+
+
+                    <button
+                        type="submit"
+                        class="send-message-btn"
+                        id="sendMessageBtn"
+                        title="Send message"
+                        aria-label="Send message"
+                    >
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         NEW CHAT MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="newChatModal"
+        hidden
+    >
+
+        <div
+            class="modal-card new-chat-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="newChatTitle"
+        >
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeNewChatBtn"
+                aria-label="Close"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+
+            <div class="modal-icon">
+
+                <i class="fa-solid fa-message"></i>
+
+            </div>
+
+
+            <h2 id="newChatTitle">
+                New conversation
+            </h2>
+
+            <p>
+                Search for someone to start chatting.
+            </p>
+
+
+            <div class="new-chat-search">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="search"
+                    id="newChatSearchInput"
+                    placeholder="Search by name or username..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div
+                class="new-chat-results"
+                id="newChatResults"
+            >
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         DELETE CHAT CONFIRMATION MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="deleteChatModal"
+        hidden
+    >
+
+        <div
+            class="modal-card delete-confirm-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="deleteChatTitle"
+        >
+
+            <div class="delete-confirm-icon">
+                <i class="fa-regular fa-trash-can"></i>
+            </div>
+
+            <h2 id="deleteChatTitle">
+                Delete conversation?
+            </h2>
+
+            <p id="deleteChatDescription">
+                This will permanently delete the conversation from your chat history.
+            </p>
+
+            <div class="delete-confirm-actions">
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    id="cancelDeleteChatBtn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="button"
+                    class="danger-btn"
+                    id="confirmDeleteChatBtn"
+                >
+                    <i class="fa-regular fa-trash-can"></i>
+                    Delete chat
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         DELETE MESSAGE CONFIRMATION MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="deleteMessageModal"
+        hidden
+    >
+
+        <div
+            class="modal-card delete-confirm-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="deleteMessageTitle"
+        >
+
+            <div class="delete-confirm-icon">
+                <i class="fa-regular fa-trash-can"></i>
+            </div>
+
+            <h2 id="deleteMessageTitle">
+                Delete message?
+            </h2>
+
+            <p>
+                This message will be permanently removed from the conversation.
+            </p>
+
+            <div class="delete-confirm-actions">
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    id="cancelDeleteMessageBtn"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="button"
+                    class="danger-btn"
+                    id="confirmDeleteMessageBtn"
+                >
+                    <i class="fa-regular fa-trash-can"></i>
+                    Delete message
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        class="toast"
+        id="chatToast"
+        hidden
+    >
+        <span id="chatToastMessage"></span>
+    </div>
+
+
+    <!-- =====================================================
+         SCRIPTS
+    ====================================================== -->
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="/js/api.js"></script>
+
+    <script src="/js/ui.js"></script>
+
+    <script src="/js/chat.js"></script>
+
+</body>
+
+</html>

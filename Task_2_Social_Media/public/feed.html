@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Home • Vibe</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/feed.css">
+</head>
+
+<body class="feed-page">
+
+    <!-- =========================
+         MOBILE TOP BAR
+    ========================== -->
+    <header class="mobile-topbar">
+
+        <a href="feed.html" class="topbar-logo">
+            <span class="brand-mark small">V</span>
+            <span>Vibe</span>
+        </a>
+
+        <div class="topbar-actions">
+
+            <button
+                class="icon-btn"
+                id="mobileSearchBtn"
+                type="button"
+                aria-label="Search"
+                title="Search"
+            >
+                🔎
+            </button>
+
+            <button
+                class="avatar avatar-sm"
+                id="mobileProfileBtn"
+                type="button"
+                aria-label="Profile"
+            >
+                <span id="mobileAvatarText">U</span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN APP LAYOUT
+    ========================== -->
+    <div class="app-layout">
+
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+        <aside class="sidebar">
+
+            <div class="sidebar-inner">
+
+                <!-- Logo -->
+                <a href="feed.html" class="sidebar-logo">
+
+                    <span class="brand-mark">
+                        V
+                    </span>
+
+                    <div>
+                        <strong>Vibe</strong>
+                        <span>Connect. Create. Inspire.</span>
+                    </div>
+
+                </a>
+
+
+                <nav class="main-nav">
+
+    <a
+        href="feed.html"
+        class="nav-item active"
+    >
+        <span class="nav-icon">⌂</span>
+        <span>Home</span>
+    </a>
+
+
+    <button
+        class="nav-item"
+        id="searchNavBtn"
+        type="button"
+    >
+        <span class="nav-icon">⌕</span>
+        <span>Explore</span>
+    </button>
+
+
+    <a
+        href="profile.html"
+        class="nav-item"
+        id="profileNavLink"
+    >
+        <span class="nav-icon">◉</span>
+        <span>Profile</span>
+    </a>
+
+
+    <!-- Messages -->
+    <a
+        href="chat.html"
+        class="nav-item"
+        id="messagesNavLink"
+    >
+        <span class="nav-icon">💬</span>
+        <span>Messages</span>
+    </a>
+
+</nav>
+
+                <!-- Create Post -->
+                <button
+                    class="create-post-btn"
+                    id="sidebarCreateBtn"
+                    type="button"
+                >
+                    <span>＋</span>
+                    <strong>Create Post</strong>
+                </button>
+
+
+                <!-- Current User -->
+                <div class="sidebar-user">
+
+                    <button
+                        class="sidebar-user-button"
+                        id="sidebarProfileBtn"
+                        type="button"
+                    >
+
+                        <div
+                            class="avatar avatar-md"
+                            id="sidebarAvatar"
+                        >
+                            <span id="sidebarAvatarText">U</span>
+                        </div>
+
+                        <div class="sidebar-user-info">
+
+                            <strong id="sidebarUserName">
+                                User
+                            </strong>
+
+                            <span id="sidebarUsername">
+                                @username
+                            </span>
+
+                        </div>
+
+                        <span class="sidebar-more">•••</span>
+
+                    </button>
+
+                </div>
+
+
+                <button
+                    class="logout-nav-btn"
+                    id="logoutBtn"
+                    type="button"
+                >
+                    <span>↪</span>
+                    <span>Log out</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+        <main class="feed-main">
+
+            <div class="feed-container">
+
+
+                <!-- =========================
+                     PAGE HEADER
+                ========================== -->
+                <div class="feed-header">
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            YOUR SPACE
+                        </span>
+
+                        <h1>Your Feed</h1>
+
+                    </div>
+
+                    <button
+                        class="refresh-btn"
+                        id="refreshBtn"
+                        type="button"
+                        title="Refresh feed"
+                    >
+                        ↻
+                    </button>
+
+                </div>
+
+
+
+                <!-- =========================
+                     SEARCH PANEL
+                ========================== -->
+                <section
+                    class="search-panel"
+                    id="searchPanel"
+                    hidden
+                >
+
+                    <div class="search-panel-header">
+
+                        <div>
+                            <span class="section-eyebrow">
+                                DISCOVER
+                            </span>
+
+                            <h2>Find people</h2>
+                        </div>
+
+                        <button
+                            class="icon-btn"
+                            id="closeSearchBtn"
+                            type="button"
+                            aria-label="Close search"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <div class="search-input-wrapper">
+
+                        <span class="search-icon">⌕</span>
+
+                        <input
+                            type="search"
+                            id="userSearchInput"
+                            placeholder="Search by name or username..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <div
+                        class="search-results"
+                        id="searchResults"
+                    >
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================
+                     CREATE POST CARD
+                ========================== -->
+                <section
+                    class="composer-card"
+                    id="composerCard"
+                >
+
+                    <div class="composer-top">
+
+                        <div
+                            class="avatar avatar-md"
+                            id="composerAvatar"
+                        >
+                            <span id="composerAvatarText">U</span>
+                        </div>
+
+                        <div class="composer-prompt">
+                            <strong id="composerName">
+                                Share something
+                            </strong>
+
+                            <span>
+                                What's on your mind?
+                            </span>
+                        </div>
+
+                    </div>
+
+
+                    <form id="createPostForm">
+
+                        <textarea
+                            id="postContent"
+                            name="content"
+                            maxlength="2000"
+                            placeholder="Share an idea, thought, achievement or moment..."
+                            required
+                        ></textarea>
+
+
+                        <div class="composer-bottom">
+
+                            <div class="composer-meta">
+
+                                <span id="characterCount">
+                                    0 / 2000
+                                </span>
+
+                            </div>
+
+
+                            <div class="composer-actions">
+
+                                <button
+                                    type="button"
+                                    class="secondary-btn"
+                                    id="clearPostBtn"
+                                >
+                                    Clear
+                                </button>
+
+                                <button
+                                    type="submit"
+                                    class="gold-btn"
+                                    id="publishBtn"
+                                >
+                                    <span>Publish</span>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+
+
+                <!-- =========================
+                     FEED FILTER
+                ========================== -->
+                <div class="feed-toolbar">
+
+                    <div class="feed-filter">
+
+                        <button
+                            class="filter-btn active"
+                            type="button"
+                        >
+                            For You
+                        </button>
+
+                        <span class="filter-divider"></span>
+
+                        <span class="feed-status">
+                            Latest posts
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     POSTS
+                ========================== -->
+                <section
+                    class="posts-list"
+                    id="postsList"
+                >
+
+                    <!-- Loading state -->
+                    <div
+                        class="feed-loading"
+                        id="feedLoading"
+                    >
+
+                        <div class="loading-spinner"></div>
+
+                        <p>Loading your feed...</p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =========================
+                     EMPTY STATE
+                ========================== -->
+                <section
+                    class="feed-empty"
+                    id="feedEmpty"
+                    hidden
+                >
+
+                    <div class="empty-icon">
+                        ✦
+                    </div>
+
+                    <h2>Your feed is quiet</h2>
+
+                    <p>
+                        Be the first to share something with your Vibe.
+                    </p>
+
+                    <button
+                        class="gold-btn"
+                        id="emptyCreateBtn"
+                        type="button"
+                    >
+                        Create your first post
+                    </button>
+
+                </section>
+
+
+            </div>
+
+        </main>
+
+
+
+        <!-- =========================
+             RIGHT SIDEBAR
+        ========================== -->
+        <aside class="right-sidebar">
+
+            <div class="right-sidebar-inner">
+
+
+                <!-- Search -->
+                <section class="side-card">
+
+                    <div class="side-card-title">
+
+                        <span class="section-eyebrow">
+                            EXPLORE
+                        </span>
+
+                        <h3>Find your people</h3>
+
+                    </div>
+
+                    <button
+                        class="side-search-btn"
+                        id="sideSearchBtn"
+                        type="button"
+                    >
+
+                        <span>⌕</span>
+
+                        <span>
+                            Search people...
+                        </span>
+
+                    </button>
+
+                </section>
+
+
+
+                <!-- Profile Card -->
+                <section class="side-card profile-preview">
+
+                    <div class="side-card-heading">
+                        <span>YOUR PROFILE</span>
+                    </div>
+
+
+                    <div class="profile-preview-main">
+
+                        <div
+                            class="avatar avatar-lg"
+                            id="rightAvatar"
+                        >
+                            <span id="rightAvatarText">U</span>
+                        </div>
+
+
+                        <div>
+
+                            <strong id="rightUserName">
+                                User
+                            </strong>
+
+                            <span id="rightUsername">
+                                @username
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-stats">
+
+                        <div>
+                            <strong id="rightPostsCount">0</strong>
+                            <span>Posts</span>
+                        </div>
+
+                        <div>
+                            <strong id="rightFollowersCount">0</strong>
+                            <span>Followers</span>
+                        </div>
+
+                        <div>
+                            <strong id="rightFollowingCount">0</strong>
+                            <span>Following</span>
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="outline-gold-btn full-width"
+                        id="viewProfileBtn"
+                        type="button"
+                    >
+                        View Profile
+                    </button>
+
+                </section>
+
+
+
+                <!-- Community Card -->
+                <section class="side-card vibe-card">
+
+                    <div class="vibe-symbol">
+                        ✦
+                    </div>
+
+                    <div>
+
+                        <strong>Make your Vibe count.</strong>
+
+                        <p>
+                            Share ideas. Meet people.
+                            Build something meaningful.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- Footer -->
+                <footer class="feed-footer">
+
+                    <span>Vibe</span>
+                    <span>•</span>
+                    <span>CodeAlpha Internship</span>
+                    <span>•</span>
+                    <span>2026</span>
+
+                </footer>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+
+
+    <!-- =========================
+         COMMENT MODAL
+    ========================== -->
+    <div
+        class="modal-overlay"
+        id="commentModal"
+        hidden
+    >
+
+        <div class="comment-modal">
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        CONVERSATION
+                    </span>
+
+                    <h2>Comments</h2>
+
+                </div>
+
+                <button
+                    class="icon-btn"
+                    id="closeCommentModal"
+                    type="button"
+                    aria-label="Close comments"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div
+                class="comments-list"
+                id="commentsList"
+            >
+            </div>
+
+
+            <form
+                class="comment-form"
+                id="commentForm"
+            >
+
+                <input
+                    type="text"
+                    id="commentInput"
+                    maxlength="500"
+                    placeholder="Write a thoughtful comment..."
+                    required
+                >
+
+                <button
+                    type="submit"
+                    class="gold-btn"
+                    id="commentSubmitBtn"
+                >
+                    Send
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         TOAST CONTAINER
+    ========================== -->
+    <div
+        class="toast-container"
+        id="toastContainer"
+    ></div>
+
+
+
+    <!-- =========================
+         SCRIPTS
+    ========================== -->
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/feed.js"></script>
+
+</body>
+</html>

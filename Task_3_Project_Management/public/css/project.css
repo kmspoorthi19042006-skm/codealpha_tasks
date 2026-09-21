@@ -1,0 +1,1090 @@
+/* =========================================================
+   FLOWPILOT — PROJECT WORKSPACE
+   ========================================================= */
+
+.project-workspace {
+    padding-bottom: 60px;
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--text-secondary);
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: var(--text);
+}
+
+.back-link span:first-child {
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   LIVE INDICATOR
+   ========================================================= */
+
+.project-live-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--text-muted);
+    font-size: 11px;
+    font-family: "DM Mono", monospace;
+}
+
+.live-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+    background: var(--success);
+
+    box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.08);
+}
+
+
+/* =========================================================
+   WORKSPACE HEADER
+   ========================================================= */
+
+.workspace-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+
+    margin-bottom: 28px;
+}
+
+.workspace-header-main {
+    min-width: 0;
+}
+
+.workspace-title-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.workspace-project-mark {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: var(--text);
+    color: white;
+
+    font-family: "Manrope", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+
+    flex-shrink: 0;
+}
+
+.workspace-eyebrow,
+.section-eyebrow,
+.modal-eyebrow {
+    margin-bottom: 5px;
+
+    color: var(--text-muted);
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.workspace-header h1 {
+    margin: 0;
+
+    color: var(--text);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 30px;
+    line-height: 1.1;
+    font-weight: 800;
+
+    letter-spacing: -0.04em;
+}
+
+.workspace-description {
+    max-width: 700px;
+
+    margin: 16px 0 13px;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.workspace-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.workspace-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.workspace-header-actions {
+    padding-top: 20px;
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.status-planning {
+    color: #92400e;
+    background: #fef3c7;
+}
+
+.status-active {
+    color: #065f46;
+    background: #d1fae5;
+}
+
+.status-completed {
+    color: #1e40af;
+    background: #dbeafe;
+}
+
+.status-archived {
+    color: #4b5563;
+    background: #f3f4f6;
+}
+
+
+/* =========================================================
+   HEALTH STRIP
+   ========================================================= */
+
+.health-strip {
+    display: grid;
+    grid-template-columns: minmax(2fr, 2fr) repeat(3, minmax(150px, 1fr));
+    gap: 12px;
+
+    margin-bottom: 42px;
+}
+
+.health-card {
+    min-height: 120px;
+
+    padding: 18px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.health-main {
+    justify-content: space-between;
+}
+
+.health-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.health-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--text-muted);
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.health-card strong {
+    display: block;
+
+    color: var(--text);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 22px;
+    line-height: 1;
+    font-weight: 800;
+}
+
+.health-main strong {
+    font-size: 15px;
+}
+
+.health-score {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+
+    color: var(--text);
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.health-progress {
+    height: 5px;
+
+    margin-top: 18px;
+
+    overflow: hidden;
+
+    background: #eeeeec;
+    border-radius: 999px;
+}
+
+.health-progress-fill {
+    width: 0;
+    height: 100%;
+
+    background: var(--text);
+
+    border-radius: inherit;
+
+    transition: width 0.5s ease;
+}
+
+.health-caption,
+.health-small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   BOARD
+   ========================================================= */
+
+.board-section {
+    margin-bottom: 46px;
+}
+
+.board-header,
+.team-section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 25px;
+
+    margin-bottom: 18px;
+}
+
+.board-header h2,
+.team-section-header h2 {
+    margin: 0;
+
+    color: var(--text);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+
+    letter-spacing: -0.03em;
+}
+
+.board-header p,
+.team-section-header p {
+    margin: 6px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.board-header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.board-view-label {
+    color: var(--text-muted);
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 0.1em;
+}
+
+.btn-small {
+    min-height: 34px;
+
+    padding: 7px 11px;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   KANBAN
+   ========================================================= */
+
+.kanban-board {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    gap: 12px;
+
+    align-items: start;
+}
+
+.kanban-column {
+    min-width: 0;
+
+    padding: 11px;
+
+    background: #f1f1ef;
+    border: 1px solid #e7e7e4;
+    border-radius: 14px;
+
+    min-height: 420px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.kanban-column.drag-over {
+    background: #e9e9e6;
+    border-color: #cfcfca;
+}
+
+.column-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 3px 2px 11px;
+}
+
+.column-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.column-title-wrap h3 {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.column-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+}
+
+.dot-todo {
+    background: #9ca3af;
+}
+
+.dot-progress {
+    background: #2563eb;
+}
+
+.dot-review {
+    background: #d97706;
+}
+
+.dot-done {
+    background: #059669;
+}
+
+.column-count {
+    min-width: 18px;
+    height: 18px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 5px;
+
+    background: #e3e3df;
+    border-radius: 999px;
+
+    color: var(--text-secondary);
+
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+}
+
+.column-add {
+    width: 26px;
+    height: 26px;
+
+    border: 0;
+    border-radius: 7px;
+
+    background: transparent;
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    font-size: 18px;
+    line-height: 1;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.column-add:hover {
+    background: white;
+    color: var(--text);
+}
+
+
+/* =========================================================
+   TASK CARDS
+   ========================================================= */
+
+.task-list {
+    min-height: 350px;
+}
+
+.task-card {
+    position: relative;
+
+    padding: 13px;
+    margin-bottom: 9px;
+
+    background: white;
+    border: 1px solid #e5e5e2;
+    border-radius: 11px;
+
+    cursor: grab;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.025);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #d4d4d0;
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.07);
+}
+
+.task-card.dragging {
+    opacity: 0.45;
+    transform: rotate(1deg);
+}
+
+.task-card:active {
+    cursor: grabbing;
+}
+
+.task-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+
+    margin-bottom: 9px;
+}
+
+.task-priority {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 4px 7px;
+
+    border-radius: 5px;
+
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    font-weight: 700;
+
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.priority-low {
+    color: #475569;
+    background: #f1f5f9;
+}
+
+.priority-medium {
+    color: #1d4ed8;
+    background: #eff6ff;
+}
+
+.priority-high {
+    color: #b45309;
+    background: #fff7ed;
+}
+
+.priority-urgent {
+    color: #b91c1c;
+    background: #fef2f2;
+}
+
+.task-menu-button {
+    width: 22px;
+    height: 22px;
+
+    border: 0;
+    background: transparent;
+
+    color: var(--text-muted);
+
+    cursor: pointer;
+
+    border-radius: 5px;
+
+    font-size: 15px;
+}
+
+.task-menu-button:hover {
+    background: #f3f3f1;
+    color: var(--text);
+}
+
+.task-title {
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 12px;
+    line-height: 1.45;
+    font-weight: 750;
+}
+
+.task-description {
+    margin: 7px 0 0;
+
+    color: var(--text-secondary);
+
+    font-size: 10px;
+    line-height: 1.55;
+
+    overflow: hidden;
+}
+
+.task-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    margin-top: 13px;
+    padding-top: 10px;
+
+    border-top: 1px solid #f0f0ee;
+}
+
+.task-assignee {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    min-width: 0;
+}
+
+.task-assignee-name {
+    max-width: 90px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: var(--text-secondary);
+
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.task-deadline {
+    color: var(--text-muted);
+
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+}
+
+.task-deadline.overdue {
+    color: var(--danger);
+}
+
+.task-avatar {
+    width: 23px;
+    height: 23px;
+
+    flex-shrink: 0;
+
+    font-size: 8px;
+}
+
+.task-unassigned {
+    color: var(--text-muted);
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   EMPTY COLUMN
+   ========================================================= */
+
+.column-empty {
+    min-height: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 4px;
+    padding: 20px 10px;
+
+    border: 1px dashed #d5d5d1;
+    border-radius: 9px;
+
+    color: var(--text-muted);
+
+    font-size: 9px;
+    text-align: center;
+}
+
+
+/* =========================================================
+   TEAM
+   ========================================================= */
+
+.workspace-team-section {
+    padding-top: 8px;
+}
+
+.team-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.team-member {
+    min-width: 210px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 11px 13px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.team-member-info {
+    min-width: 0;
+}
+
+.team-member-name {
+    color: var(--text);
+
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.team-member-role {
+    margin-top: 2px;
+
+    color: var(--text-muted);
+
+    font-family: "DM Mono", monospace;
+    font-size: 8px;
+    text-transform: uppercase;
+}
+
+.team-member-email {
+    margin-top: 2px;
+
+    color: var(--text-secondary);
+
+    font-size: 9px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.workspace-loading {
+    width: 100%;
+
+    padding: 25px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+    text-align: center;
+}
+
+
+/* =========================================================
+   TASK MODAL
+   ========================================================= */
+
+.task-modal {
+    width: min(600px, calc(100vw - 30px));
+    max-height: calc(100vh - 40px);
+
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.modal-header h2 {
+    margin: 0;
+
+    color: var(--text);
+
+    font-family: "Manrope", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+
+    letter-spacing: -0.03em;
+}
+
+.modal-close {
+    width: 32px;
+    height: 32px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: #f4f4f2;
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    font-size: 20px;
+    line-height: 1;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.modal-close:hover {
+    background: #e9e9e6;
+    color: var(--text);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--text);
+
+    font-size: 10px;
+    font-weight: 750;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 10px 11px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: #fff;
+    color: var(--text);
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 11px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #9ca3af;
+
+    box-shadow:
+        0 0 0 3px rgba(17, 17, 17, 0.05);
+}
+
+.form-error {
+    margin: -2px 0 14px;
+
+    padding: 9px 11px;
+
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+
+    background: #fef2f2;
+    color: #b91c1c;
+
+    font-size: 10px;
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-top: 20px;
+    padding-top: 17px;
+
+    border-top: 1px solid var(--border);
+}
+
+.modal-footer-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-danger-outline {
+    min-height: 36px;
+
+    padding: 8px 12px;
+
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+
+    background: white;
+    color: #b91c1c;
+
+    cursor: pointer;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.btn-danger-outline:hover {
+    background: #fef2f2;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .health-strip {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+
+    .health-card:last-child {
+        grid-column: span 1;
+    }
+
+    .kanban-board {
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .workspace-header {
+        flex-direction: column;
+    }
+
+    .workspace-header-actions {
+        padding-top: 0;
+    }
+
+    .health-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .health-main {
+        grid-column: span 2;
+    }
+
+    .kanban-board {
+        grid-template-columns: 1fr;
+    }
+
+    .kanban-column {
+        min-height: 200px;
+    }
+
+    .task-list {
+        min-height: 100px;
+    }
+}
+
+
+@media (max-width: 640px) {
+
+    .workspace-header h1 {
+        font-size: 24px;
+    }
+
+    .workspace-project-mark {
+        width: 43px;
+        height: 43px;
+    }
+
+    .health-strip {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .health-main {
+        grid-column: span 2;
+    }
+
+    .board-header,
+    .team-section-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .board-header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .modal-footer {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .modal-footer-right {
+        justify-content: flex-end;
+    }
+
+    .team-member {
+        width: 100%;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .task-card,
+    .health-progress-fill,
+    .column-add,
+    .modal-close {
+        transition: none;
+    }
+}

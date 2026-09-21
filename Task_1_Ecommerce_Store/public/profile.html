@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Manage your ShopSphere account, profile and shopping preferences.">
+
+    <meta name="author" content="Spoorthi K M">
+
+    <title>My Profile | ShopSphere</title>
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= TOP BAR ================= -->
+
+    <div class="top-bar">
+        🚚 Free Shipping on Orders Above ₹999
+    </div>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="container navbar">
+
+            <!-- Logo -->
+
+            <a href="index.html" class="logo">
+                Shop<span>Sphere</span>
+            </a>
+
+
+            <!-- Navigation -->
+
+            <nav class="nav-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#categories">
+                    Categories
+                </a>
+
+                <a href="index.html#products">
+                    Products
+                </a>
+
+                <a href="orders.html">
+                    Orders
+                </a>
+
+            </nav>
+
+
+            <!-- Navigation Actions -->
+
+            <div class="nav-actions">
+
+                <a href="cart.html" class="cart-link">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Cart
+
+                    <span id="cart-count" class="cart-count">
+                        0
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="profile.html"
+                    class="profile-link active-profile">
+
+                    <i class="fa-solid fa-circle-user"></i>
+
+                    <span>Profile</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= PROFILE PAGE ================= -->
+
+    <main class="profile-page">
+
+        <div class="container">
+
+
+            <!-- PAGE HEADING -->
+
+            <div class="profile-heading">
+
+                <div>
+
+                    <p class="section-label">
+                        MY ACCOUNT
+                    </p>
+
+                    <h1>
+                        Profile
+                    </h1>
+
+                    <p>
+                        Manage your ShopSphere account and shopping activity.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFILE LAYOUT -->
+
+            <div class="profile-layout">
+
+
+                <!-- ================= PROFILE CARD ================= -->
+
+                <section class="profile-main-card">
+
+
+                    <!-- PROFILE HEADER -->
+
+                    <div class="profile-user-header">
+
+                        <div class="profile-avatar">
+
+                            <i class="fa-solid fa-user"></i>
+
+                        </div>
+
+
+                        <div class="profile-user-info">
+
+                            <span class="profile-welcome">
+                                WELCOME BACK
+                            </span>
+
+                            <h2 id="profile-name">
+                                Customer
+                            </h2>
+
+                            <p id="profile-email">
+                                Loading...
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACCOUNT DETAILS -->
+
+                    <div class="profile-section">
+
+                        <div class="profile-section-heading">
+
+                            <div>
+
+                                <p class="section-label">
+                                    ACCOUNT INFORMATION
+                                </p>
+
+                                <h3>
+                                    Personal Details
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-details-grid">
+
+
+                            <div class="profile-detail">
+
+                                <span class="profile-detail-label">
+                                    <i class="fa-regular fa-user"></i>
+                                    Full Name
+                                </span>
+
+                                <strong id="detail-name">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-detail">
+
+                                <span class="profile-detail-label">
+                                    <i class="fa-regular fa-envelope"></i>
+                                    Email Address
+                                </span>
+
+                                <strong id="detail-email">
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-detail">
+
+                                <span class="profile-detail-label">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                    Account Type
+                                </span>
+
+                                <strong id="detail-role">
+                                    Customer
+                                </strong>
+
+                            </div>
+
+
+                            <div class="profile-detail">
+
+                                <span class="profile-detail-label">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    Account Status
+                                </span>
+
+                                <strong class="profile-status">
+                                    Active
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACCOUNT ACTIONS -->
+
+                    <div class="profile-section profile-actions-section">
+
+                        <div class="profile-section-heading">
+
+                            <div>
+
+                                <p class="section-label">
+                                    QUICK ACTIONS
+                                </p>
+
+                                <h3>
+                                    Manage Your Shopping
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="profile-actions-grid">
+
+
+                            <a
+                                href="orders.html"
+                                class="profile-action-card">
+
+                                <span class="profile-action-icon">
+                                    <i class="fa-solid fa-box"></i>
+                                </span>
+
+                                <span>
+                                    <strong>
+                                        My Orders
+                                    </strong>
+
+                                    <small>
+                                        View your purchases
+                                    </small>
+                                </span>
+
+                                <i class="fa-solid fa-arrow-right action-arrow"></i>
+
+                            </a>
+
+
+                            <a
+                                href="cart.html"
+                                class="profile-action-card">
+
+                                <span class="profile-action-icon">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </span>
+
+                                <span>
+                                    <strong>
+                                        Shopping Cart
+                                    </strong>
+
+                                    <small>
+                                        View items in your cart
+                                    </small>
+                                </span>
+
+                                <i class="fa-solid fa-arrow-right action-arrow"></i>
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOGOUT -->
+
+                    <div class="profile-logout-section">
+
+                        <div>
+
+                            <strong>
+                                Sign out of your account
+                            </strong>
+
+                            <p>
+                                You can sign in again anytime using your account.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="logout-btn"
+                            class="profile-logout-btn">
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            Logout
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= SIDE CARD ================= -->
+
+                <aside class="profile-side-card">
+
+                    <div class="profile-side-icon">
+
+                        <i class="fa-solid fa-shield-halved"></i>
+
+                    </div>
+
+
+                    <p class="section-label">
+                        SHOPSPHERE SECURITY
+                    </p>
+
+
+                    <h2>
+                        Your account is protected.
+                    </h2>
+
+
+                    <p>
+                        Your login credentials are securely handled
+                        and your shopping information is kept private.
+                    </p>
+
+
+                    <div class="profile-security-item">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Secure account access
+                        </span>
+
+                    </div>
+
+
+                    <div class="profile-security-item">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Protected shopping data
+                        </span>
+
+                    </div>
+
+
+                    <div class="profile-security-item">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            Order history in one place
+                        </span>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-bottom">
+
+            <p>
+                © 2026 ShopSphere. All Rights Reserved.
+            </p>
+
+            <p>
+                Built for CodeAlpha Full Stack Development Internship
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/api.js"></script>
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/profile.js"></script>
+
+</body>
+
+</html>

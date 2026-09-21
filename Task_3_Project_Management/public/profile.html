@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Profile — FlowPilot</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css">
+
+    <style>
+
+        .profile-layout {
+            min-height: 100vh;
+        }
+
+        .profile-layout .sidebar {
+            position: fixed !important;
+            left: 0 !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            width: var(--sidebar-width, 240px) !important;
+            z-index: 1000 !important;
+        }
+
+        .profile-layout .main-content {
+            margin-left: var(--sidebar-width, 240px) !important;
+            width: calc(100% - var(--sidebar-width, 240px)) !important;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+        .profile-page {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .profile-header {
+            margin-bottom: 28px;
+        }
+
+        .profile-header h1 {
+            margin: 4px 0 6px;
+            font-size: 30px;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 20px;
+        }
+
+        .profile-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
+        }
+
+        .profile-avatar-wrapper {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .profile-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            margin: auto;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background: #111827;
+            color: white;
+            font-size: 34px;
+            font-weight: 700;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .picture-button {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 9px 14px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: white;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .picture-button:hover {
+            background: #f5f5f3;
+        }
+
+        #pictureInput {
+            display: none;
+        }
+
+        .profile-name {
+            text-align: center;
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .profile-username {
+            text-align: center;
+            color: var(--text-secondary);
+            margin: 6px 0 0;
+        }
+
+        .profile-email {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            margin: 5px 0 0;
+        }
+
+        .bio-display {
+            margin-top: 20px;
+            padding: 16px;
+            background: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-size: 14px;
+            min-height: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 11px 13px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: white;
+            font: inherit;
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #111827;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            background: #fafafa;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+
+        .stat-value {
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .account-section {
+            border-top: 1px solid var(--border);
+            padding-top: 22px;
+        }
+
+        .account-section h3 {
+            margin: 0 0 6px;
+        }
+
+        .account-section p {
+            color: var(--text-secondary);
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+
+        .logout-button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #fecaca;
+            background: white;
+            color: #b91c1c;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .logout-button:hover {
+            background: #fef2f2;
+        }
+
+        .profile-message {
+            margin-bottom: 16px;
+            padding: 11px 14px;
+            border-radius: 9px;
+            display: none;
+            font-size: 13px;
+        }
+
+        .profile-message.success {
+            display: block;
+            background: #ecfdf5;
+            color: #047857;
+        }
+
+        .profile-message.error {
+            display: block;
+            background: #fef2f2;
+            color: #b91c1c;
+        }
+
+        @media (max-width: 850px) {
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            .profile-layout .sidebar {
+                position: relative !important;
+                width: 100% !important;
+            }
+
+            .profile-layout .main-content {
+                margin-left: 0 !important;
+                width: 100% !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="app-shell profile-layout">
+
+    <aside
+        class="sidebar"
+        id="sidebar">
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <div class="page-eyebrow">
+                    FLOWPILOT
+                </div>
+
+                <h2>
+                    Profile
+                </h2>
+
+            </div>
+
+        </header>
+
+
+        <div class="page-container">
+
+            <section class="profile-page">
+
+                <div class="profile-header">
+
+                    <div class="page-eyebrow">
+                        ACCOUNT
+                    </div>
+
+                    <h1>
+                        Your Profile
+                    </h1>
+
+                    <p class="text-secondary">
+                        Manage your profile and account.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="profileMessage"
+                    class="profile-message">
+                </div>
+
+
+                <div class="profile-grid">
+
+
+                    <!-- PROFILE CARD -->
+
+                    <div class="profile-card">
+
+                        <div class="profile-avatar-wrapper">
+
+                            <div
+                                id="profileAvatar"
+                                class="profile-avatar">
+                            </div>
+
+                            <label
+                                for="pictureInput"
+                                class="picture-button">
+
+                                Change picture
+
+                            </label>
+
+                            <input
+                                type="file"
+                                id="pictureInput"
+                                accept="image/jpeg,image/png,image/webp">
+
+                        </div>
+
+
+                        <h2
+                            id="profileName"
+                            class="profile-name">
+                            Loading...
+                        </h2>
+
+                        <p
+                            id="profileUsername"
+                            class="profile-username">
+                        </p>
+
+                        <p
+                            id="profileEmail"
+                            class="profile-email">
+                        </p>
+
+
+                        <div
+                            id="profileBio"
+                            class="bio-display">
+                        </div>
+
+                    </div>
+
+
+                    <!-- EDIT PROFILE -->
+
+                    <div class="profile-card">
+
+                        <h3>
+                            Edit Profile
+                        </h3>
+
+
+                        <form id="profileForm">
+
+                            <div class="form-group">
+
+                                <label for="fullName">
+                                    Full name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="fullName"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="username">
+                                    Username
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="username"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="bio">
+                                    Bio
+                                </label>
+
+                                <textarea
+                                    id="bio"
+                                    maxlength="500"
+                                    placeholder="Tell your team a little about yourself..."></textarea>
+
+                            </div>
+
+
+                            <div class="form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary">
+
+                                    Save changes
+
+                                </button>
+
+                                <button
+                                    type="button"
+                                    id="cancelEdit"
+                                    class="btn btn-secondary">
+
+                                    Cancel
+
+                                </button>
+
+                            </div>
+
+                        </form>
+
+
+                        <br>
+
+
+                        <div class="stats-grid">
+
+                            <div class="stat-card">
+
+                                <div class="stat-label">
+                                    Projects
+                                </div>
+
+                                <div
+                                    id="projectCount"
+                                    class="stat-value">
+                                    0
+                                </div>
+
+                            </div>
+
+
+                            <div class="stat-card">
+
+                                <div class="stat-label">
+                                    Assigned Tasks
+                                </div>
+
+                                <div
+                                    id="taskCount"
+                                    class="stat-value">
+                                    0
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="account-section">
+
+                            <h3>
+                                Account
+                            </h3>
+
+                            <p>
+                                Sign out of your FlowPilot account.
+                            </p>
+
+                            <button
+                                type="button"
+                                id="logoutButton"
+                                class="btn btn-danger">logout
+                            </button>
+
+                            
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="/js/api.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/profile.js"></script>
+
+</body>
+
+</html>

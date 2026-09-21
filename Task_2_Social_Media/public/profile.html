@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile • Vibe</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/profile.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================
+         TOP BAR
+    ========================== -->
+
+    <header class="profile-topbar">
+
+        <div class="profile-topbar-inner">
+
+            <a href="/feed.html" class="vibe-brand">
+                <span class="vibe-logo">V</span>
+                <span>Vibe</span>
+            </a>
+
+            <a href="/feed.html" class="back-feed">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Feed</span>
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="profile-page">
+
+        <section class="profile-card">
+
+            <!-- COVER -->
+            <div class="profile-cover">
+                <div class="cover-shine"></div>
+            </div>
+
+
+            <!-- PROFILE HERO -->
+            <div class="profile-hero">
+
+                <!-- AVATAR -->
+                <div class="profile-avatar-wrap">
+
+                    <div
+                        class="profile-avatar"
+                        id="profileAvatar"
+                    >
+                        <span id="profileAvatarInitials">VU</span>
+                    </div>
+
+                </div>
+
+
+                <!-- USER INFORMATION -->
+                <div class="profile-info">
+
+                    <div class="profile-name-row">
+
+                        <h1 id="profileName">
+                            Vibe User
+                        </h1>
+
+                        <span
+                            class="verified-badge"
+                            title="Verified"
+                        >
+                            ✓
+                        </span>
+
+                    </div>
+
+                    <p
+                        class="profile-username"
+                        id="profileUsername"
+                    >
+                        @user
+                    </p>
+
+                    <p
+                        class="profile-bio"
+                        id="profileBio"
+                    >
+                        No bio yet.
+                    </p>
+
+                </div>
+
+
+                <!-- ACTION BUTTONS -->
+                <div
+                    class="profile-actions"
+                    id="profileAction"
+                >
+                    <!-- JavaScript inserts buttons here -->
+                </div>
+
+            </div>
+
+
+            <!-- STATS -->
+            <div class="profile-stats">
+
+                <button
+                    type="button"
+                    class="profile-stat"
+                    id="postsStat"
+                >
+                    <strong id="postsCount">0</strong>
+                    <span>Posts</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="profile-stat"
+                    id="followersStat"
+                >
+                    <strong id="followersCount">0</strong>
+                    <span>Followers</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="profile-stat"
+                    id="followingStat"
+                >
+                    <strong id="followingCount">0</strong>
+                    <span>Following</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             POSTS SECTION
+        ========================== -->
+
+        <section class="profile-posts-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-eyebrow">PROFILE</span>
+                    <h2>Posts</h2>
+                </div>
+
+                <button
+                    type="button"
+                    class="icon-button"
+                    id="refreshProfileBtn"
+                    title="Refresh posts"
+                >
+                    <i class="fa-solid fa-rotate"></i>
+                </button>
+
+            </div>
+
+
+            <!-- LOADING -->
+            <div
+                class="profile-loading"
+                id="profileLoading"
+                hidden
+            >
+                <div class="loading-spinner"></div>
+                <p>Loading posts...</p>
+            </div>
+
+
+            <!-- POSTS -->
+            <div
+                class="profile-posts"
+                id="profilePosts"
+            ></div>
+
+
+            <!-- EMPTY -->
+            <div
+                class="profile-empty"
+                id="profileEmpty"
+                hidden
+            >
+
+                <div class="empty-icon">
+                    <i class="fa-regular fa-file-lines"></i>
+                </div>
+
+                <h3>No posts yet</h3>
+
+                <p>
+                    This profile hasn't shared anything yet.
+                </p>
+
+                <a href="/feed.html" class="primary-button">
+                    Go to Feed
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         EDIT PROFILE MODAL
+    ========================== -->
+
+    <div
+        class="profile-modal"
+        id="editProfileModal"
+        hidden
+    >
+
+        <div class="modal-backdrop"></div>
+
+        <div
+            class="profile-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="editProfileTitle"
+        >
+
+            <!-- MODAL HEADER -->
+            <div class="modal-header">
+
+                <div>
+                    <span class="section-eyebrow">
+                        ACCOUNT
+                    </span>
+
+                    <h2 id="editProfileTitle">
+                        Edit Profile
+                    </h2>
+                </div>
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="closeEditProfileBtn"
+                    aria-label="Close"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <!-- FORM -->
+            <form id="editProfileForm">
+
+                <!-- PROFILE PHOTO -->
+                <div class="photo-editor">
+
+                    <div
+                        class="photo-preview"
+                        id="photoPreview"
+                    >
+                        <span id="photoPreviewInitials">
+                            VU
+                        </span>
+                    </div>
+
+                    <div class="photo-editor-content">
+
+                        <h3>Profile photo</h3>
+
+                        <p>
+                            Choose a JPG, JPEG, PNG or WEBP image.
+                        </p>
+
+                        <div class="photo-buttons">
+
+                            <label
+                                for="profileImageInput"
+                                class="secondary-button"
+                            >
+                                <i class="fa-solid fa-camera"></i>
+                                Choose Photo
+                            </label>
+
+                            <input
+                                type="file"
+                                id="profileImageInput"
+                                accept="image/png,image/jpeg,image/jpg,image/webp"
+                                hidden
+                            >
+
+                            <button
+                                type="button"
+                                class="danger-outline-button"
+                                id="removeProfileImageBtn"
+                                hidden
+                            >
+                                Remove
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NAME -->
+                <div class="form-group">
+
+                    <label for="editName">
+                        Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editName"
+                        name="name"
+                        maxlength="100"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- USERNAME -->
+                <div class="form-group">
+
+                    <label for="editUsername">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editUsername"
+                        name="username"
+                        maxlength="50"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- BIO -->
+                <div class="form-group">
+
+                    <div class="label-row">
+
+                        <label for="editBio">
+                            Bio
+                        </label>
+
+                        <span id="bioCounter">
+                            0/500
+                        </span>
+
+                    </div>
+
+                    <textarea
+                        id="editBio"
+                        name="bio"
+                        maxlength="500"
+                        rows="4"
+                        placeholder="Tell people a little about yourself..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- MODAL ACTIONS -->
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="cancelEditProfileBtn"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                        id="saveProfileBtn"
+                    >
+                        <i class="fa-solid fa-check"></i>
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+    <div
+        class="profile-toast"
+        id="profileToast"
+    ></div>
+
+
+    <!-- SCRIPTS -->
+    <script src="/js/api.js"></script>
+    <script src="/js/ui.js"></script>
+    <script src="/js/profile.js"></script>
+
+</body>
+</html>

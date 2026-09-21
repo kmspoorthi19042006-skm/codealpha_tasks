@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Complete your ShopSphere order securely.">
+
+    <meta name="author" content="Spoorthi K M">
+
+    <title>Checkout | ShopSphere</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+
+    <div class="top-bar">
+
+        <div class="container">
+
+            <p>
+                <i class="fa-solid fa-truck"></i>
+                Free shipping on orders above ₹999
+            </p>
+
+            <p>
+                <i class="fa-solid fa-shield-halved"></i>
+                Secure & trusted shopping
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a
+                href="index.html"
+                class="logo"
+                aria-label="ShopSphere Home">
+
+                <span class="logo-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </span>
+
+                <span>
+                    ShopSphere
+                </span>
+
+            </a>
+
+
+            <nav
+                class="nav-links"
+                aria-label="Main Navigation">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#products">
+                    Products
+                </a>
+
+                <a href="cart.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Cart
+                    <span
+                        id="cart-count"
+                        class="cart-count">
+                        0
+                    </span>
+                </a>
+
+                <a href="orders.html">
+                    Orders
+                </a>
+
+                <a href="profile.html">
+                    Profile
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- CHECKOUT -->
+
+    <main class="checkout-page">
+
+        <div class="container">
+
+            <!-- PAGE HEADING -->
+
+            <div class="checkout-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        SECURE CHECKOUT
+                    </span>
+
+                    <h1>
+                        Complete Your Order
+                    </h1>
+
+                    <p>
+                        Enter your delivery details and review
+                        your order before placing it.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOADING -->
+
+            <div
+                id="checkout-loading"
+                class="checkout-loading"
+                role="status"
+                aria-live="polite">
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                <p>
+                    Preparing your checkout...
+                </p>
+
+            </div>
+
+
+            <!-- CHECKOUT CONTENT -->
+
+            <section
+                id="checkout-content"
+                class="checkout-content hidden">
+
+
+                <!-- LEFT SIDE -->
+
+                <div class="checkout-form-section">
+
+                    <!-- SHIPPING DETAILS -->
+
+                    <div class="checkout-card">
+
+                        <div class="checkout-card-header">
+
+                            <div class="checkout-card-icon">
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                            </div>
+
+                            <div>
+
+                                <span class="section-label">
+                                    DELIVERY
+                                </span>
+
+                                <h2>
+                                    Shipping Address
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <form id="checkout-form">
+
+                            <div class="checkout-form-group">
+
+                                <label for="shipping-address">
+                                    Complete Address
+                                </label>
+
+                                <textarea
+                                    id="shipping-address"
+                                    name="shipping_address"
+                                    rows="5"
+                                    placeholder="Enter your complete delivery address"
+                                    required></textarea>
+
+                                <small>
+                                    Include house/building number,
+                                    street, area, city, state and PIN code.
+                                </small>
+
+                            </div>
+
+
+                            <div
+                                id="checkout-message"
+                                class="checkout-message hidden"
+                                role="alert">
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                id="place-order-btn"
+                                class="btn btn-primary place-order-btn">
+
+                                <span>
+                                    Place Order
+                                </span>
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- SECURITY CARD -->
+
+                    <div class="checkout-security-card">
+
+                        <div class="checkout-security-icon">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Secure Order Processing
+                            </strong>
+
+                            <p>
+                                Your order is processed securely.
+                                Stock is verified and updated when
+                                your order is placed.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT SIDE -->
+
+                <aside class="checkout-summary">
+
+                    <div class="checkout-summary-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                ORDER REVIEW
+                            </span>
+
+                            <h2>
+                                Your Order
+                            </h2>
+
+                        </div>
+
+                        <span
+                            id="checkout-item-count"
+                            class="checkout-item-count">
+                            0 items
+                        </span>
+
+                    </div>
+
+
+                    <!-- ORDER ITEMS -->
+
+                    <div
+                        id="checkout-items"
+                        class="checkout-items">
+                    </div>
+
+
+                    <div class="checkout-summary-divider"></div>
+
+
+                    <!-- SUMMARY -->
+
+                    <div class="checkout-summary-row">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong id="checkout-subtotal">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="checkout-summary-row">
+
+                        <span>
+                            Shipping
+                        </span>
+
+                        <strong id="checkout-shipping">
+                            FREE
+                        </strong>
+
+                    </div>
+
+
+                    <div class="checkout-summary-note">
+
+                        <i class="fa-solid fa-circle-info"></i>
+
+                        <span>
+                            Free shipping on orders above ₹999.
+                        </span>
+
+                    </div>
+
+
+                    <div class="checkout-summary-divider"></div>
+
+
+                    <div class="checkout-total-row">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="checkout-total">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="checkout-payment-note">
+
+                        <i class="fa-solid fa-credit-card"></i>
+
+                        <span>
+                            Payment will be collected through
+                            the available checkout process.
+                        </span>
+
+                    </div>
+
+                </aside>
+
+            </section>
+
+
+            <!-- ERROR -->
+
+            <section
+                id="checkout-error"
+                class="checkout-error hidden"
+                role="alert">
+
+                <div class="checkout-error-icon">
+
+                    <i class="fa-solid fa-circle-exclamation"></i>
+
+                </div>
+
+                <h2>
+                    Unable to Prepare Checkout
+                </h2>
+
+                <p id="checkout-error-message">
+                    Something went wrong while loading your cart.
+                </p>
+
+                <a
+                    href="cart.html"
+                    class="btn btn-primary">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Return to Cart
+
+                </a>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 ShopSphere. All Rights Reserved.
+                </p>
+
+                <p>
+                    Built for CodeAlpha Full Stack Development Internship
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/api.js"></script>
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/checkout.js"></script>
+
+</body>
+
+</html>

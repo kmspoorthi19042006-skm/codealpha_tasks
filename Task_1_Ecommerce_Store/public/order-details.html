@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order Details | ShopSphere</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-bag-shopping"></i>
+                ShopSphere
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#products">Products</a>
+                <a href="orders.html" class="active">Orders</a>
+
+                <a href="cart.html" class="cart-link">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Cart
+                    <span id="cart-count" class="cart-count">0</span>
+                </a>
+
+                <a href="login.html" id="login-link" class="btn btn-outline">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Login
+                </a>
+
+                <a
+                    href="profile.html"
+                    id="profile-link"
+                    class="profile-link hidden"
+                    title="My Profile"
+                >
+                    <i class="fa-solid fa-circle-user"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="order-details-page">
+
+        <div class="container">
+
+            <!-- PAGE HEADER -->
+            <div class="order-details-header">
+
+                <div>
+                    <a href="orders.html" class="back-link">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Back to Orders
+                    </a>
+
+                    <h1>Order Details</h1>
+                    <p>Review your order information and items.</p>
+                </div>
+
+            </div>
+
+
+            <!-- LOADING -->
+            <div id="order-loading" class="order-state">
+                <div class="loading-spinner"></div>
+                <p>Loading order details...</p>
+            </div>
+
+
+            <!-- ERROR -->
+            <div id="order-error" class="order-state hidden">
+                <div class="state-icon error-icon">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+
+                <h2>Unable to load order</h2>
+
+                <p id="order-error-message">
+                    We could not find the requested order.
+                </p>
+
+                <a href="orders.html" class="btn btn-primary">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to Orders
+                </a>
+            </div>
+
+
+            <!-- ORDER CONTENT -->
+            <div id="order-content" class="hidden">
+
+                <!-- ORDER SUMMARY HEADER -->
+                <section class="order-info-card">
+
+                    <div class="order-info-main">
+
+                        <div>
+                            <span class="order-label">Order Number</span>
+                            <h2 id="order-id">#--</h2>
+                        </div>
+
+                        <div>
+                            <span class="order-label">Order Date</span>
+                            <p id="order-date">--</p>
+                        </div>
+
+                        <div>
+                            <span class="order-label">Status</span>
+                            <span id="order-status" class="status-badge">
+                                Pending
+                            </span>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <div class="order-details-grid">
+
+                    <!-- ITEMS -->
+                    <section class="order-items-card">
+
+                        <div class="section-title">
+                            <div>
+                                <h2>Items in Your Order</h2>
+                                <p id="items-count">0 items</p>
+                            </div>
+                        </div>
+
+                        <div id="order-items"></div>
+
+                    </section>
+
+
+                    <!-- RIGHT SIDE -->
+                    <div class="order-sidebar">
+
+                        <!-- SHIPPING -->
+                        <section class="shipping-card">
+
+                            <div class="section-title">
+                                <h2>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Shipping Address
+                                </h2>
+                            </div>
+
+                            <p id="shipping-address">
+                                --
+                            </p>
+
+                        </section>
+
+
+                        <!-- ORDER SUMMARY -->
+                        <section class="order-summary-card">
+
+                            <div class="section-title">
+                                <h2>Order Summary</h2>
+                            </div>
+
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="order-subtotal">₹0.00</span>
+                            </div>
+
+                            <div class="summary-row">
+                                <span>Shipping</span>
+                                <span id="order-shipping">₹0.00</span>
+                            </div>
+
+                            <div class="summary-divider"></div>
+
+                            <div class="summary-row summary-total">
+                                <span>Total</span>
+                                <span id="order-total">₹0.00</span>
+                            </div>
+
+                        </section>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTIONS -->
+                <div class="order-actions">
+
+                    <a href="orders.html" class="btn btn-outline">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Back to Orders
+                    </a>
+
+                    <a href="index.html#products" class="btn btn-primary">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        Continue Shopping
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div>
+                    <h3>ShopSphere</h3>
+                    <p>
+                        Your trusted destination for quality products
+                        and a seamless shopping experience.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2026 ShopSphere. All rights reserved.
+                </p>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/order-details.js"></script>
+
+
+    <!-- LOGIN / PROFILE NAV -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const loginLink = document.getElementById("login-link");
+            const profileLink = document.getElementById("profile-link");
+
+            const token = localStorage.getItem("token");
+
+            if (token) {
+                loginLink?.classList.add("hidden");
+                profileLink?.classList.remove("hidden");
+            } else {
+                loginLink?.classList.remove("hidden");
+                profileLink?.classList.add("hidden");
+            }
+
+        });
+    </script>
+
+</body>
+</html>

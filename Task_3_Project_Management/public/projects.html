@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects — FlowPilot</title>
+
+    <link rel="stylesheet" href="/css/style.css?v=4">
+    <link rel="stylesheet" href="/css/projects.css?v=4">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <main class="main-content">
+
+        <div class="page-container">
+
+            <!-- HEADER -->
+            <header class="projects-header">
+
+                <div class="page-heading">
+
+                    <div class="dashboard-kicker">
+                        WORKSPACE
+                    </div>
+
+                    <h1>Projects</h1>
+
+                    <p class="projects-subtitle">
+                        Plan, organize and move your work forward.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="openCreateProject"
+                >
+                    <span>+</span>
+                    New project
+                </button>
+
+            </header>
+
+
+            <!-- FILTERS -->
+            <section
+                class="projects-toolbar"
+                aria-label="Project filters"
+            >
+
+                <div class="project-filters">
+
+                    <button
+                        type="button"
+                        class="filter-btn active"
+                        data-filter="all"
+                    >
+                        All projects
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-filter="active"
+                    >
+                        Active
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-filter="planning"
+                    >
+                        Planning
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-filter="completed"
+                    >
+                        Completed
+                    </button>
+
+                </div>
+
+                <div
+                    class="project-count"
+                    id="projectCountLabel"
+                >
+                    0 projects
+                </div>
+
+            </section>
+
+
+            <!-- PROJECTS -->
+            <section
+                class="projects-grid"
+                id="projectsGrid"
+                aria-live="polite"
+            >
+
+                <div class="loading">
+
+                    <div class="spinner"></div>
+
+                    <span>Loading projects...</span>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- CREATE PROJECT MODAL -->
+<div
+    class="modal-overlay"
+    id="createProjectModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="project-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="createProjectTitle"
+    >
+
+        <div class="modal-header">
+
+            <div>
+
+                <div class="modal-eyebrow">
+                    NEW WORKSPACE
+                </div>
+
+                <h2 id="createProjectTitle">
+                    Create project
+                </h2>
+
+                <p>
+                    Set up a project and start organizing the work.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeCreateProject"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="createProjectForm">
+
+            <div class="form-group">
+
+                <label for="projectName">
+                    Project name
+                </label>
+
+                <input
+                    id="projectName"
+                    name="name"
+                    type="text"
+                    maxlength="150"
+                    placeholder="e.g. Placement Preparation"
+                    autocomplete="off"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="projectDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="projectDescription"
+                    name="description"
+                    maxlength="2000"
+                    rows="4"
+                    placeholder="What are you building or planning?"
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="projectStatus">
+                        Status
+                    </label>
+
+                    <select
+                        id="projectStatus"
+                        name="status"
+                    >
+                        <option value="planning">Planning</option>
+                        <option value="active">Active</option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="projectColor">
+                        Accent
+                    </label>
+
+                    <input
+                        id="projectColor"
+                        name="color"
+                        type="color"
+                        value="#111111"
+                        class="color-input"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="startDate">
+                        Start date
+                    </label>
+
+                    <input
+                        id="startDate"
+                        name="start_date"
+                        type="date"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="deadline">
+                        Deadline
+                    </label>
+
+                    <input
+                        id="deadline"
+                        name="deadline"
+                        type="date"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="form-error"
+                id="projectFormError"
+                role="alert"
+            ></div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="cancelCreateProject"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="createProjectButton"
+                >
+                    Create project
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="/js/api.js?v=4"></script>
+<script src="/js/ui.js?v=4"></script>
+<script src="/js/projects.js?v=4"></script>
+
+</body>
+</html>

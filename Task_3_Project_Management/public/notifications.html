@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Notifications — FlowPilot</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+    <style>
+        /* =====================================================
+           NOTIFICATIONS PAGE SHELL
+           ===================================================== */
+
+        .notifications-layout {
+            min-height: 100vh;
+
+            /*
+             * The normal FlowPilot sidebar is 240px wide.
+             * The notification page gets its own isolated layout
+             * so the sidebar cannot overlap the content.
+             */
+            padding-left: 0 !important;
+        }
+
+        .notifications-layout .sidebar {
+            position: fixed !important;
+
+            left: 0 !important;
+            top: 0 !important;
+            bottom: 0 !important;
+
+            width: var(--sidebar-width, 240px) !important;
+
+            z-index: 1000 !important;
+
+            overflow-y: auto;
+        }
+
+        .notifications-layout .main-content {
+            position: relative;
+
+            margin-left: var(--sidebar-width, 240px) !important;
+
+            width: calc(
+                100% - var(--sidebar-width, 240px)
+            ) !important;
+
+            min-width: 0;
+
+            box-sizing: border-box;
+        }
+
+
+        /* =====================================================
+           PAGE
+           ===================================================== */
+
+        .notifications-page {
+            width: 100%;
+            max-width: 1000px;
+
+            margin: 0 auto;
+        }
+
+
+        /* =====================================================
+           HEADER
+           ===================================================== */
+
+        .notifications-header {
+            display: flex;
+
+            align-items: flex-end;
+            justify-content: space-between;
+
+            gap: 24px;
+
+            margin-bottom: 28px;
+        }
+
+        .notifications-header h1 {
+            margin: 4px 0 6px;
+
+            font-size: 30px;
+            line-height: 1.15;
+
+            letter-spacing: -0.7px;
+        }
+
+        .notifications-header p {
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           LIST
+           ===================================================== */
+
+        .notification-list {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+
+        /* =====================================================
+           NOTIFICATION CARD
+           ===================================================== */
+
+        .notification-item {
+            position: relative;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 16px;
+
+            background: var(--surface);
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            padding: 18px 20px;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.18s ease,
+                border-color 0.18s ease,
+                box-shadow 0.18s ease,
+                background 0.18s ease;
+        }
+
+        .notification-item:hover {
+            transform: translateY(-1px);
+
+            border-color: #d1d5db;
+
+            box-shadow:
+                0 8px 24px rgba(17, 24, 39, 0.06);
+        }
+
+        .notification-item.unread {
+            background: #fafafa;
+
+            border-color:
+                rgba(17, 24, 39, 0.22);
+        }
+
+
+        /* =====================================================
+           ICON
+           ===================================================== */
+
+        .notification-icon {
+            width: 44px;
+            height: 44px;
+
+            min-width: 44px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 13px;
+
+            background: #f1f3f5;
+
+            color: #111827;
+
+            font-size: 18px;
+        }
+
+
+        /* =====================================================
+           CONTENT
+           ===================================================== */
+
+        .notification-content {
+            flex: 1;
+
+            min-width: 0;
+        }
+
+        .notification-title-row {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+        .notification-title-row h3 {
+            margin: 0;
+
+            font-size: 15px;
+
+            line-height: 1.4;
+
+            font-weight: 700;
+
+            color: var(--text);
+        }
+
+        .notification-content p {
+            margin: 6px 0 0;
+
+            color: var(--text-secondary);
+
+            line-height: 1.5;
+
+            font-size: 14px;
+        }
+
+        .notification-time {
+            display: block;
+
+            margin-top: 8px;
+
+            color: var(--text-muted);
+
+            font-size: 12px;
+        }
+
+        .unread-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #111827;
+
+            flex-shrink: 0;
+        }
+
+
+        /* =====================================================
+           READ BUTTON
+           ===================================================== */
+
+        .notification-read-btn {
+            width: 34px;
+            height: 34px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 9px;
+
+            background: #ffffff;
+
+            color: #111827;
+
+            display: grid;
+
+            place-items: center;
+
+            cursor: pointer;
+
+            transition:
+                background 0.18s ease,
+                border-color 0.18s ease,
+                transform 0.18s ease;
+        }
+
+        .notification-read-btn:hover {
+            background: #f3f4f6;
+
+            border-color: #d1d5db;
+
+            transform: scale(1.03);
+        }
+
+
+        /* =====================================================
+           EMPTY STATE
+           ===================================================== */
+
+        .empty-notifications {
+            background: var(--surface);
+
+            border: 1px dashed var(--border);
+
+            border-radius: 18px;
+
+            padding: 70px 24px;
+
+            text-align: center;
+        }
+
+        .empty-notifications-icon {
+            width: 56px;
+            height: 56px;
+
+            margin: 0 auto 16px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 16px;
+
+            background: #f1f3f5;
+
+            color: #6b7280;
+
+            font-size: 22px;
+        }
+
+        .empty-notifications h3 {
+            margin: 0 0 6px;
+
+            font-size: 17px;
+        }
+
+        .empty-notifications p {
+            margin: 0;
+
+            color: var(--text-secondary);
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           LOADING
+           ===================================================== */
+
+        .notification-loading {
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 50px 20px;
+
+            text-align: center;
+
+            color: var(--text-secondary);
+        }
+
+
+        /* =====================================================
+           ERROR
+           ===================================================== */
+
+        .notification-error {
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            padding: 50px 24px;
+
+            text-align: center;
+        }
+
+        .notification-error-icon {
+            width: 52px;
+            height: 52px;
+
+            margin: 0 auto 14px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 14px;
+
+            background: #f3f4f6;
+
+            font-size: 22px;
+        }
+
+        .notification-error h3 {
+            margin: 0 0 6px;
+        }
+
+        .notification-error p {
+            margin: 0 0 18px;
+
+            color: var(--text-secondary);
+        }
+
+
+        /* =====================================================
+           TOAST
+           ===================================================== */
+
+        .notification-toast {
+            position: fixed;
+
+            right: 24px;
+            bottom: 24px;
+
+            z-index: 9999;
+
+            padding: 12px 16px;
+
+            border-radius: 10px;
+
+            background: #111827;
+
+            color: #ffffff;
+
+            font-size: 13px;
+
+            opacity: 0;
+
+            transform: translateY(10px);
+
+            pointer-events: none;
+
+            transition:
+                opacity 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .notification-toast.show {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        .notification-toast.error {
+            background: #991b1b;
+        }
+
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .notifications-layout .sidebar {
+                width: 220px !important;
+            }
+
+            .notifications-layout .main-content {
+                margin-left: 220px !important;
+
+                width: calc(
+                    100% - 220px
+                ) !important;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .notifications-layout .sidebar {
+                position: relative !important;
+
+                width: 100% !important;
+
+                height: auto;
+
+                max-height: none;
+            }
+
+            .notifications-layout .main-content {
+                margin-left: 0 !important;
+
+                width: 100% !important;
+            }
+
+            .notifications-header {
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+            .notifications-header h1 {
+                font-size: 26px;
+            }
+
+            .notification-item {
+                padding: 16px;
+            }
+
+            .notification-icon {
+                width: 40px;
+                height: 40px;
+
+                min-width: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="app-shell notifications-layout">
+
+    <!-- ui.js fills this sidebar -->
+    <aside
+        class="sidebar"
+        id="sidebar">
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <div class="page-eyebrow">
+                    FLOWPILOT
+                </div>
+
+                <h2>
+                    Notifications
+                </h2>
+
+            </div>
+
+        </header>
+
+
+        <div class="page-container">
+
+            <section class="notifications-page">
+
+                <div class="notifications-header">
+
+                    <div>
+
+                        <div class="page-eyebrow">
+                            ACTIVITY
+                        </div>
+
+                        <h1>
+                            Notifications
+                        </h1>
+
+                        <p class="text-secondary">
+                            Stay updated on your projects and tasks.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="markAllRead">
+
+                        Mark all as read
+
+                    </button>
+
+                </div>
+
+
+                <!-- Loading -->
+
+                <div
+                    id="loadingState"
+                    class="notification-loading">
+
+                    Loading notifications...
+
+                </div>
+
+
+                <!-- Notification list -->
+
+                <div
+                    id="notificationList"
+                    class="notification-list">
+                </div>
+
+
+                <!-- Empty state -->
+
+                <div
+                    id="emptyState"
+                    class="empty-notifications"
+                    style="display: none;">
+
+                    <div class="empty-notifications-icon">
+                        🔔
+                    </div>
+
+                    <h3>
+                        You're all caught up
+                    </h3>
+
+                    <p>
+                        There are no new notifications right now.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="/js/api.js"></script>
+
+<script src="/js/ui.js"></script>
+
+<script src="/js/notifications.js"></script>
+
+</body>
+</html>

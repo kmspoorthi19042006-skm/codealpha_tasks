@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Tasks — FlowPilot</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css?v=6"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/my-tasks.css?v=6"
+    >
+</head>
+
+<body>
+
+<div class="app-shell my-tasks-layout">
+
+    <main class="main-content">
+
+        <div class="page-container">
+
+            <header class="tasks-header">
+
+                <div class="tasks-heading">
+
+                    <div class="page-eyebrow">
+                        WORKSPACE
+                    </div>
+
+                    <h1>
+                        My Tasks
+                    </h1>
+
+                    <p class="tasks-subtitle">
+                        View and manage the work assigned to you.
+                    </p>
+
+                </div>
+
+            </header>
+
+
+            <section class="task-summary">
+
+                <div class="summary-card">
+
+                    <span class="summary-label">
+                        To do
+                    </span>
+
+                    <strong id="todoCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <span class="summary-label">
+                        In progress
+                    </span>
+
+                    <strong id="progressCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <span class="summary-label">
+                        In review
+                    </span>
+
+                    <strong id="reviewCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <span class="summary-label">
+                        Completed
+                    </span>
+
+                    <strong id="doneCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <section class="tasks-section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>
+                            Assigned tasks
+                        </h2>
+
+                        <p>
+                            Tasks currently assigned to your account.
+                        </p>
+
+                    </div>
+
+
+                    <span
+                        id="taskTotal"
+                        class="task-total"
+                    >
+                        0 tasks
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="tasksList"
+                    class="tasks-list"
+                >
+
+                    <div class="loading">
+
+                        <div class="spinner"></div>
+
+                        <span>
+                            Loading tasks...
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="/js/api.js?v=6"></script>
+
+<script src="/js/ui.js?v=6"></script>
+
+<script src="/js/my-tasks.js?v=6"></script>
+
+</body>
+
+</html>

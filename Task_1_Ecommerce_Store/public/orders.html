@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="View and manage your ShopSphere orders.">
+
+    <meta name="author" content="Spoorthi K M">
+
+    <title>My Orders | ShopSphere</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+
+    <div class="top-bar">
+
+        <div class="container">
+
+            <p>
+                <i class="fa-solid fa-truck"></i>
+                Free shipping on orders above ₹999
+            </p>
+
+            <p>
+                <i class="fa-solid fa-shield-halved"></i>
+                Secure & trusted shopping
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a
+                href="index.html"
+                class="logo"
+                aria-label="ShopSphere Home">
+
+                <span class="logo-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </span>
+
+                <span>
+                    ShopSphere
+                </span>
+
+            </a>
+
+
+            <nav
+                class="nav-links"
+                aria-label="Main Navigation">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#products">
+                    Products
+                </a>
+
+                <a href="cart.html">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Cart
+
+                    <span
+                        id="cart-count"
+                        class="cart-count">
+                        0
+                    </span>
+
+                </a>
+
+                <a
+                    href="orders.html"
+                    class="active">
+
+                    <i class="fa-solid fa-box"></i>
+
+                    Orders
+
+                </a>
+
+                <a href="profile.html">
+                    Profile
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ORDERS PAGE -->
+
+    <main class="orders-page">
+
+        <div class="container">
+
+            <!-- HEADING -->
+
+            <div class="orders-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        SHOPPING ACTIVITY
+                    </span>
+
+                    <h1>
+                        My Orders
+                    </h1>
+
+                    <p>
+                        View your recent purchases and track
+                        your order details.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOADING -->
+
+            <div
+                id="orders-loading"
+                class="orders-loading"
+                role="status"
+                aria-live="polite">
+
+                <i class="fa-solid fa-spinner fa-spin"></i>
+
+                <p>
+                    Loading your orders...
+                </p>
+
+            </div>
+
+
+            <!-- ORDERS CONTENT -->
+
+            <section
+                id="orders-content"
+                class="orders-content hidden">
+
+                <div class="orders-list-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            ORDER HISTORY
+                        </span>
+
+                        <h2>
+                            Your Purchases
+                        </h2>
+
+                    </div>
+
+                    <span
+                        id="orders-count"
+                        class="orders-count">
+                        0 orders
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="orders-container"
+                    class="orders-container">
+                </div>
+
+            </section>
+
+
+            <!-- EMPTY ORDERS -->
+
+            <section
+                id="empty-orders"
+                class="empty-orders hidden">
+
+                <div class="empty-orders-icon">
+
+                    <i class="fa-solid fa-box-open"></i>
+
+                </div>
+
+                <span class="section-label">
+                    NO ORDERS YET
+                </span>
+
+                <h2>
+                    You haven't placed any orders
+                </h2>
+
+                <p>
+                    Your completed purchases will appear here.
+                    Start exploring our products and place your
+                    first order.
+                </p>
+
+                <a
+                    href="index.html#products"
+                    class="btn btn-primary">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    Start Shopping
+
+                </a>
+
+            </section>
+
+
+            <!-- ERROR -->
+
+            <section
+                id="orders-error"
+                class="orders-error hidden"
+                role="alert">
+
+                <div class="orders-error-icon">
+
+                    <i class="fa-solid fa-circle-exclamation"></i>
+
+                </div>
+
+                <h2>
+                    Unable to Load Orders
+                </h2>
+
+                <p id="orders-error-message">
+                    Something went wrong while loading your orders.
+                </p>
+
+                <button
+                    id="retry-orders-btn"
+                    class="btn btn-primary"
+                    type="button">
+
+                    <i class="fa-solid fa-rotate-right"></i>
+
+                    Try Again
+
+                </button>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 ShopSphere. All Rights Reserved.
+                </p>
+
+                <p>
+                    Built for CodeAlpha Full Stack Development Internship
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/api.js"></script>
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/orders.js"></script>
+
+</body>
+
+</html>

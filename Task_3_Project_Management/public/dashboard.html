@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard — FlowPilot</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/css/dashboard.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="app-shell">
+
+        <main class="main-content">
+
+            <div class="page-container">
+
+                <!-- HEADER -->
+
+                <header class="dashboard-header">
+
+                    <div>
+
+                        <div class="dashboard-kicker">
+                            Workspace overview
+                        </div>
+
+                        <h1 id="welcomeHeading">
+                            Good morning.
+                        </h1>
+
+                        <p
+                            class="dashboard-subtitle"
+                            id="dashboardSubtitle"
+                        >
+                            Here's what's happening across your projects.
+                        </p>
+
+                    </div>
+
+                    <div class="topbar-right">
+
+                        <a
+                            href="/projects.html"
+                            class="btn btn-secondary"
+                        >
+                            View projects
+                        </a>
+
+                        <a
+                            href="/projects.html#create"
+                            class="btn btn-primary"
+                        >
+                            + New project
+                        </a>
+
+                    </div>
+
+                </header>
+
+                <!-- STATS -->
+
+                <section
+                    class="stats-grid"
+                    id="statsGrid"
+                >
+
+                    <article class="card stat-card">
+
+                        <div class="stat-top">
+
+                            <span>
+                                Projects
+                            </span>
+
+                            <div class="stat-icon">
+                                □
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="stat-value"
+                            id="projectCount"
+                        >
+                            —
+                        </div>
+
+                        <div class="stat-meta">
+                            Your active workspace
+                        </div>
+
+                    </article>
+
+                    <article class="card stat-card">
+
+                        <div class="stat-top">
+
+                            <span>
+                                Open tasks
+                            </span>
+
+                            <div class="stat-icon">
+                                ✓
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="stat-value"
+                            id="openTaskCount"
+                        >
+                            —
+                        </div>
+
+                        <div class="stat-meta">
+                            Work still in motion
+                        </div>
+
+                    </article>
+
+                    <article class="card stat-card">
+
+                        <div class="stat-top">
+
+                            <span>
+                                Completed
+                            </span>
+
+                            <div class="stat-icon">
+                                ↗
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="stat-value"
+                            id="completedTaskCount"
+                        >
+                            —
+                        </div>
+
+                        <div class="stat-meta">
+                            Tasks finished
+                        </div>
+
+                    </article>
+
+                    <article class="card stat-card">
+
+                        <div class="stat-top">
+
+                            <span>
+                                Completion
+                            </span>
+
+                            <div class="stat-icon">
+                                %
+                            </div>
+
+                        </div>
+
+                        <div
+                            class="stat-value"
+                            id="completionRate"
+                        >
+                            —
+                        </div>
+
+                        <div class="stat-meta">
+                            Across your projects
+                        </div>
+
+                    </article>
+
+                </section>
+
+                <!-- MAIN GRID -->
+
+                <section class="dashboard-grid">
+
+                    <!-- PROJECTS -->
+
+                    <article class="card dashboard-panel">
+
+                        <div class="panel-header">
+
+                            <div class="panel-title">
+
+                                <strong>
+                                    Your projects
+                                </strong>
+
+                                <span>
+                                    Current project progress
+                                </span>
+
+                            </div>
+
+                            <a
+                                href="/projects.html"
+                                class="panel-action"
+                            >
+                                View all →
+                            </a>
+
+                        </div>
+
+                        <div
+                            id="projectList"
+                            class="project-list"
+                        >
+
+                            <div class="loading">
+                                <div class="spinner"></div>
+                                Loading projects...
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                    <!-- ACTIVITY -->
+
+                    <article class="card dashboard-panel">
+
+                        <div class="panel-header">
+
+                            <div class="panel-title">
+
+                                <strong>
+                                    Recent activity
+                                </strong>
+
+                                <span>
+                                    Latest workspace movement
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <div
+                            id="activityList"
+                            class="activity-list"
+                        >
+
+                            <div class="loading">
+                                <div class="spinner"></div>
+                                Loading activity...
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+                <!-- QUICK ACTIONS -->
+
+                <article
+                    class="card dashboard-panel"
+                    style="margin-top:14px;"
+                >
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <strong>
+                                Quick actions
+                            </strong>
+
+                            <span>
+                                Jump straight into your workflow
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="quick-actions">
+
+                        <a
+                            href="/projects.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                +
+                            </div>
+
+                            <span>
+                                Create project
+                            </span>
+
+                        </a>
+
+                        <a
+                            href="/projects.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                □
+                            </div>
+
+                            <span>
+                                Open projects
+                            </span>
+
+                        </a>
+
+                        <a
+                            href="/notifications.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                ○
+                            </div>
+
+                            <span>
+                                Check notifications
+                            </span>
+
+                        </a>
+
+                        <a
+                            href="/profile.html"
+                            class="quick-action"
+                        >
+
+                            <div class="quick-action-icon">
+                                ◯
+                            </div>
+
+                            <span>
+                                View profile
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/ui.js"></script>
+    <script src="/js/dashboard.js"></script>
+
+</body>
+
+</html>

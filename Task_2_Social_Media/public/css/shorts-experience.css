@@ -1,0 +1,423 @@
+/* =========================================================
+   VIBE DISCOVER — CLEAN EXPERIENCE LAYER
+   Enhancement only.
+   Does NOT replace shorts.css.
+   ========================================================= */
+
+:root {
+    --vx-purple: #8c7cff;
+    --vx-purple-soft: rgba(140, 124, 255, 0.12);
+    --vx-blue: #5ea8ff;
+    --vx-cyan: #58d9ff;
+    --vx-green: #58d6a4;
+    --vx-orange: #ffad68;
+    --vx-pink: #ef83d0;
+    --vx-yellow: #ffc76b;
+}
+
+/* =========================================================
+   CARD REFINEMENT
+   ========================================================= */
+
+#shortsGrid > .short-card,
+#shortsGrid > article,
+#shortsGrid > [class*="short-card"] {
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+#shortsGrid > .short-card:hover,
+#shortsGrid > article:hover,
+#shortsGrid > [class*="short-card"]:hover {
+    transform: translateY(-4px);
+}
+
+/* Very subtle category accent */
+.vibe-category-internship::before,
+.vibe-category-job::before,
+.vibe-category-hackathon::before,
+.vibe-category-scholarship::before,
+.vibe-category-news::before,
+.vibe-category-education::before,
+.vibe-category-aptitude::before,
+.vibe-category-coding::before,
+.vibe-category-riddle::before,
+.vibe-category-joke::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    opacity: 0.8;
+}
+
+.vibe-category-internship::before {
+    background: var(--vx-blue);
+}
+
+.vibe-category-job::before {
+    background: var(--vx-green);
+}
+
+.vibe-category-hackathon::before {
+    background: var(--vx-orange);
+}
+
+.vibe-category-scholarship::before {
+    background: var(--vx-purple);
+}
+
+.vibe-category-news::before {
+    background: var(--vx-cyan);
+}
+
+.vibe-category-education::before {
+    background: #6fd7bd;
+}
+
+.vibe-category-aptitude::before {
+    background: #9b8cff;
+}
+
+.vibe-category-coding::before {
+    background: #62aaff;
+}
+
+.vibe-category-riddle::before {
+    background: var(--vx-pink);
+}
+
+.vibe-category-joke::before {
+    background: var(--vx-yellow);
+}
+
+/* =========================================================
+   REMOVE VISUAL OVERLOAD
+   ========================================================= */
+
+/* Our previous version added this label.
+   It is intentionally hidden now. */
+
+.short-experience-label {
+    display: none !important;
+}
+
+/* Previous enhancement panel is no longer needed. */
+
+.vibe-challenge-panel {
+    display: none !important;
+}
+
+/* =========================================================
+   REMOVE DUPLICATE @USERNAME DISPLAY
+   ========================================================= */
+
+.vibe-hidden-username {
+    display: none !important;
+}
+
+/* =========================================================
+   OPPORTUNITY / NEWS ACTIONS
+   ========================================================= */
+
+.short-experience-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 13px;
+}
+
+.short-experience-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 36px;
+    padding: 0 13px;
+    border: 1px solid rgba(140,124,255,0.25);
+    border-radius: 10px;
+    background: rgba(140,124,255,0.13);
+    color: #eeeaff;
+    font-size: 10px;
+    font-weight: 750;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.short-experience-btn:hover {
+    background: rgba(140,124,255,0.23);
+    border-color: rgba(140,124,255,0.4);
+    transform: translateY(-1px);
+}
+
+.short-experience-save {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 36px;
+    padding: 0 11px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.035);
+    color: #999eaf;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.short-experience-save:hover {
+    background: rgba(255,255,255,0.07);
+    color: #fff;
+}
+
+.short-experience-save.saved {
+    color: #bdb4ff;
+    background: rgba(140,124,255,0.10);
+    border-color: rgba(140,124,255,0.25);
+}
+
+/* =========================================================
+   SMALL OPPORTUNITY TAG
+   ========================================================= */
+
+.vibe-opportunity-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    padding: 5px 8px;
+    border-radius: 7px;
+    background: rgba(255,255,255,0.035);
+    color: #999fb0;
+    border: 1px solid rgba(255,255,255,0.055);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.vibe-category-internship .vibe-opportunity-tag {
+    color: #7eb9ff;
+}
+
+.vibe-category-job .vibe-opportunity-tag {
+    color: #73dfb3;
+}
+
+.vibe-category-hackathon .vibe-opportunity-tag {
+    color: #ffb47b;
+}
+
+.vibe-category-scholarship .vibe-opportunity-tag {
+    color: #c6b8ff;
+}
+
+/* =========================================================
+   CHALLENGE CTA
+   ========================================================= */
+
+/* Target the existing button from shorts.js.
+   No additional panel is created. */
+
+#shortsGrid [data-action="challenge"] {
+    width: 100%;
+    min-height: 42px;
+    margin-top: 13px;
+    border-radius: 11px !important;
+    border: 1px solid rgba(140,124,255,0.26) !important;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(140,124,255,0.20),
+            rgba(94,168,255,0.10)
+        ) !important;
+    color: #eeeaff !important;
+    font-size: 11px !important;
+    font-weight: 750 !important;
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease !important;
+}
+
+#shortsGrid [data-action="challenge"]:hover {
+    transform: translateY(-1px);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(140,124,255,0.30),
+            rgba(94,168,255,0.16)
+        ) !important;
+    border-color: rgba(140,124,255,0.4) !important;
+}
+
+/* =========================================================
+   NEWS
+   ========================================================= */
+
+.vibe-news-card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(14,34,45,0.95),
+            rgba(11,15,23,0.98)
+        ) !important;
+}
+
+.vibe-news-source {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    color: #7f8998;
+    font-size: 9px;
+}
+
+.vibe-news-source i {
+    color: var(--vx-cyan);
+}
+
+/* =========================================================
+   DETAILS MODAL
+   ========================================================= */
+
+.vibe-details-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background: rgba(2,3,8,0.78);
+    backdrop-filter: blur(12px);
+}
+
+.vibe-details-overlay.active {
+    display: flex;
+}
+
+.vibe-details-modal {
+    width: min(580px, 100%);
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(27,29,44,0.98),
+            rgba(10,12,19,0.99)
+        );
+    box-shadow: 0 30px 90px rgba(0,0,0,0.55);
+}
+
+.vibe-details-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.vibe-details-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: rgba(140,124,255,0.10);
+    border: 1px solid rgba(140,124,255,0.17);
+    color: #bcb4ff;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.vibe-details-title {
+    margin: 12px 0 0;
+    color: #fff;
+    font-size: 23px;
+    line-height: 1.2;
+}
+
+.vibe-details-close {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 auto;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.04);
+    color: #aeb2c0;
+    cursor: pointer;
+}
+
+.vibe-details-close:hover {
+    color: white;
+}
+
+.vibe-details-body {
+    margin-top: 20px;
+    color: #c0c4d0;
+    font-size: 13px;
+    line-height: 1.7;
+    white-space: pre-line;
+}
+
+.vibe-details-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 17px;
+}
+
+.vibe-details-meta span {
+    padding: 6px 9px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.06);
+    color: #aeb3c2;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.vibe-details-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 21px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .short-experience-actions {
+        width: 100%;
+    }
+
+    .short-experience-btn,
+    .short-experience-save {
+        flex: 1;
+    }
+
+    .vibe-details-modal {
+        padding: 20px;
+        border-radius: 17px;
+    }
+
+    .vibe-details-title {
+        font-size: 20px;
+    }
+}

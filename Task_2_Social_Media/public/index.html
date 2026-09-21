@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Vibe • Social & Opportunities</title>
+
+    <meta
+        name="description"
+        content="Vibe — a modern student social and opportunity platform."
+    >
+
+</head>
+
+<body>
+
+    <div
+        style="
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:#0f1113;
+            color:#f5f7fa;
+            font-family:Inter,Arial,sans-serif;
+        "
+    >
+
+        <div style="text-align:center;">
+
+            <div
+                style="
+                    width:52px;
+                    height:52px;
+                    margin:0 auto 18px;
+                    display:grid;
+                    place-items:center;
+                    border-radius:16px;
+                    background:#d4af37;
+                    color:#111;
+                    font-size:24px;
+                    font-weight:800;
+                "
+            >
+                ⚡
+            </div>
+
+            <h1
+                style="
+                    margin:0 0 8px;
+                    font-size:28px;
+                "
+            >
+                Vibe
+            </h1>
+
+            <p
+                style="
+                    margin:0;
+                    color:#8d96a3;
+                    font-size:14px;
+                "
+            >
+                Taking you to Vibe...
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const token =
+            localStorage.getItem("social_token");
+
+
+        if (token) {
+
+            // Logged-in users start at Shorts
+            window.location.replace(
+                "/shorts.html"
+            );
+
+        } else {
+
+            // Logged-out users must login first
+            window.location.replace(
+                "/login.html"
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>

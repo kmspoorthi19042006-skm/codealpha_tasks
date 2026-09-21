@@ -1,0 +1,149 @@
+<!DOCTYPE html>  <html lang="en">  <head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Shopping Cart | ShopSphere</title>    <!-- Fonts -->    <link rel="preconnect" href="https://fonts.googleapis.com">  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">    <!-- Icons -->    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">    <!-- Styles -->    <link rel="stylesheet" href="css/style.css">  
+</head>  <body>    <!-- =====================================================  
+       TOP BAR  
+  ====================================================== -->    <div class="top-bar">  
+    <div class="container">  
+      <p><i class="fa-solid fa-truck"></i> Free shipping on orders above ₹999</p>  
+      <p><i class="fa-solid fa-shield-halved"></i> Secure & trusted shopping</p>  
+    </div>  
+  </div>    <!-- =====================================================  
+       NAVBAR  
+  ====================================================== -->    <header class="navbar">  
+    <div class="container nav-container">  
+      <a href="index.html" class="logo" aria-label="ShopSphere Home">  
+        <span class="logo-icon"><i class="fa-solid fa-bag-shopping"></i></span>  
+        <span>ShopSphere</span>  
+      </a>  <nav class="nav-links" aria-label="Main Navigation">  
+    <a href="index.html">Home</a>  
+    <a href="index.html#products">Products</a>  
+    <a href="cart.html" class="active">  
+      <i class="fa-solid fa-cart-shopping"></i> Cart  
+      <span id="cart-count" aria-live="polite">0</span>  
+    </a>  
+    <a href="orders.html">Orders</a>  
+    <a href="profile.html">Profile</a>  
+  </nav>  
+</div>
+
+  </header>    <!-- =====================================================  
+       CART PAGE  
+  ====================================================== -->    <main class="cart-page">  
+    <div class="container">  <!-- PAGE HEADING -->  
+  <div class="cart-heading">  
+    <div>  
+      <span class="section-label">YOUR SHOPPING BAG</span>  
+      <h1>Shopping Cart</h1>  
+      <p>Review your selected products before checkout.</p>  
+    </div>  
+  </div>  
+
+  <!-- LOADING -->  
+  <div id="cart-loading" class="cart-loading" role="status" aria-live="polite">  
+    <i class="fa-solid fa-spinner fa-spin"></i>  
+    <p>Loading your cart...</p>  
+  </div>  
+
+  <!-- CART CONTENT -->  
+  <section id="cart-content" class="cart-content hidden">  
+
+    <!-- CART ITEMS -->  
+    <div class="cart-items-section">  
+      <div class="cart-section-header">  
+        <h2>Your Items</h2>  
+        <span id="cart-item-count">0 items</span>  
+      </div>  
+
+      <div id="cart-items-container" class="cart-items-container">  
+        <!-- Cart items will be loaded here -->  
+      </div>  
+
+      <div class="cart-actions">  
+        <a href="index.html#products" class="btn btn-outline">  
+          <i class="fa-solid fa-arrow-left"></i> Continue Shopping  
+        </a>  
+        <button id="clear-cart-btn" class="clear-cart-btn" type="button">  
+          <i class="fa-solid fa-trash-can"></i> Clear Cart  
+        </button>  
+      </div>  
+    </div>  
+
+    <!-- ORDER SUMMARY -->  
+    <aside class="cart-summary">  
+      <div class="summary-header">  
+        <h2>Order Summary</h2>  
+      </div>  
+
+      <div class="summary-row">  
+        <span>Subtotal</span>  
+        <strong id="cart-subtotal">₹0</strong>  
+      </div>  
+
+      <div class="summary-row">  
+        <span>Shipping</span>  
+        <strong id="cart-shipping">FREE</strong>  
+      </div>  
+
+      <div class="summary-note">  
+        <i class="fa-solid fa-circle-info"></i>  
+        <span>Free shipping is available on orders above ₹999.</span>  
+      </div>  
+
+      <div class="summary-divider"></div>  
+
+      <div class="summary-total">  
+        <span>Total</span>  
+        <strong id="cart-total">₹0</strong>  
+      </div>  
+
+      <button id="checkout-btn" class="btn btn-primary checkout-btn" type="button">  
+        Proceed to Checkout <i class="fa-solid fa-arrow-right"></i>  
+      </button>  
+
+      <div class="secure-checkout">  
+        <i class="fa-solid fa-lock"></i>  
+        <span>Secure checkout</span>  
+      </div>  
+    </aside>  
+  </section>  
+  <!-- EMPTY CART -->  
+  <section id="empty-cart" class="empty-cart hidden">  
+    <div class="empty-cart-icon">  
+      <i class="fa-solid fa-cart-shopping"></i>  
+    </div>  
+    <h2>Your cart is empty</h2>  
+    <p>Looks like you haven't added anything to your cart yet. Explore our products and find something you love.</p>  
+    <a href="index.html#products" class="btn btn-primary">  
+      <i class="fa-solid fa-bag-shopping"></i> Start Shopping  
+    </a>  
+  </section>  
+
+  <!-- CART ERROR -->  
+  <section id="cart-error" class="cart-error hidden" role="alert">  
+    <i class="fa-solid fa-circle-exclamation"></i>  
+    <h2>Unable to Load Cart</h2>  
+    <p id="cart-error-message">Something went wrong while loading your cart.</p>  
+    <button id="retry-cart-btn" class="btn btn-primary" type="button">  
+      <i class="fa-solid fa-rotate-right"></i> Try Again  
+    </button>  
+  </section>  
+
+</div>
+
+  </main>    <!-- =====================================================  
+       FOOTER  
+  ====================================================== -->    <footer class="footer">  
+    <div class="container">  
+      <div class="footer-bottom">  
+        <p>© 2026 ShopSphere. All rights reserved.</p>  
+        <p>Built for CodeAlpha Full Stack Development Internship</p>  
+      </div>  
+    </div>  
+  </footer>    <!-- =====================================================  
+       SCRIPTS  
+  ====================================================== -->    <script src="js/api.js"></script>    <script src="js/auth.js"></script>    <script src="js/cart.js"></script>  </body>  
+</html>

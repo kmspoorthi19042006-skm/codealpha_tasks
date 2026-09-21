@@ -1,0 +1,677 @@
+/* =========================================
+   PROJECTS HEADER
+========================================= */
+
+.projects-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 28px;
+}
+
+.projects-subtitle {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+/* =========================================
+   TOOLBAR
+========================================= */
+
+.projects-toolbar {
+    min-height: 54px;
+
+    margin-bottom: 14px;
+
+    padding: 7px 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    background: var(--surface);
+}
+
+.project-filters {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.filter-btn {
+    padding: 7px 12px;
+
+    border: 0;
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        color var(--transition);
+}
+
+.filter-btn:hover {
+    color: var(--text);
+}
+
+.filter-btn.active {
+    background: #111;
+    color: white;
+}
+
+.project-count {
+    padding-right: 7px;
+
+    color: var(--text-muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+}
+
+/* =========================================
+   PROJECT GRID
+========================================= */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 13px;
+}
+
+.project-card {
+    position: relative;
+
+    min-height: 245px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 180ms ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+
+    border-color: var(--border-strong);
+
+    box-shadow: var(--shadow-md);
+}
+
+.project-accent {
+    height: 4px;
+
+    width: 100%;
+
+    background: #111;
+}
+
+.project-card-body {
+    flex: 1;
+
+    padding: 18px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.project-card-title {
+    min-width: 0;
+}
+
+.project-card-title h3 {
+    margin: 0;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    letter-spacing: -0.02em;
+}
+
+.project-card-description {
+    margin-top: 7px;
+
+    min-height: 34px;
+
+    display: -webkit-box;
+
+    overflow: hidden;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+    line-height: 1.55;
+
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.project-card-meta {
+    margin-top: auto;
+    padding-top: 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 8px;
+}
+
+.project-metric {
+    padding: 9px;
+
+    background: #fafaf9;
+
+    border: 1px solid #efefed;
+
+    border-radius: 8px;
+}
+
+.project-metric-value {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.project-metric-label {
+    margin-top: 3px;
+
+    color: var(--text-muted);
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.project-card-footer {
+    padding: 12px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid var(--border);
+}
+
+.project-progress {
+    flex: 1;
+
+    max-width: 130px;
+}
+
+.project-progress-track {
+    width: 100%;
+    height: 4px;
+
+    overflow: hidden;
+
+    background: #ececea;
+
+    border-radius: 999px;
+}
+
+.project-progress-fill {
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: #111;
+
+    transition: width 400ms ease;
+}
+
+.project-progress-label {
+    margin-top: 5px;
+
+    color: var(--text-muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 8px;
+}
+
+.project-open {
+    color: var(--text-secondary);
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.project-open:hover {
+    color: var(--text);
+}
+
+/* =========================================
+   DELETE BUTTON
+========================================= */
+
+.project-delete {
+    width: 28px;
+    height: 28px;
+
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 auto;
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: var(--text-muted);
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition);
+}
+
+.project-delete:hover {
+    background: #fff5f5;
+
+    color: var(--danger);
+
+    border-color: #fecaca;
+}
+
+/* =========================================
+   CREATE PROJECT MODAL
+========================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background: rgba(17, 17, 17, 0.42);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* MODAL CARD */
+
+.project-modal {
+    width: min(
+        560px,
+        calc(100vw - 32px)
+    );
+
+    max-height: calc(100vh - 40px);
+
+    overflow-y: auto;
+
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.16);
+
+    animation: projectModalIn 0.22s ease both;
+}
+
+@keyframes projectModalIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+/* HEADER */
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+
+    padding-bottom: 18px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-eyebrow {
+    margin-bottom: 5px;
+
+    color: var(--text-muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.modal-header h2 {
+    margin: 4px 0 5px;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.03em;
+}
+
+.modal-header p {
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+/* CLOSE BUTTON */
+
+.modal-close {
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 auto;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: var(--text-secondary);
+
+    font-size: 18px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 180ms ease,
+        color 180ms ease,
+        border-color 180ms ease,
+        transform 180ms ease;
+}
+
+.modal-close:hover {
+    background: #f4f4f1;
+
+    color: var(--text);
+
+    border-color: var(--border-strong);
+}
+
+.modal-close:active {
+    transform: scale(0.94);
+}
+
+/* FORM */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 12px;
+}
+
+/* COLOR INPUT */
+
+.color-input {
+    width: 100%;
+    height: 42px;
+
+    padding: 5px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    cursor: pointer;
+}
+
+/* MODAL FORM FOOTER */
+
+.modal-footer {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 24px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid var(--border);
+}
+
+/* CANCEL BUTTON */
+
+#cancelCreateProject {
+    min-width: 90px;
+}
+
+/* CREATE BUTTON */
+
+#createProjectForm button[type="submit"] {
+    min-width: 125px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 640px) {
+
+    .project-modal {
+        width: calc(100vw - 24px);
+
+        max-height: calc(100vh - 24px);
+
+        padding: 20px;
+
+        border-radius: 15px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-header {
+        gap: 12px;
+    }
+
+    .modal-header h2 {
+        font-size: 19px;
+    }
+
+}
+
+/* =========================================
+   EMPTY
+========================================= */
+
+.projects-empty {
+    grid-column: 1 / -1;
+
+    min-height: 360px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    border: 1px dashed var(--border-strong);
+
+    border-radius: var(--radius-lg);
+
+    background: rgba(255, 255, 255, 0.65);
+
+    text-align: center;
+}
+
+.projects-empty-icon {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 14px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    background: #111;
+
+    color: white;
+
+    font-size: 20px;
+}
+
+.projects-empty h3 {
+    margin-bottom: 6px;
+
+    font-size: 15px;
+}
+
+.projects-empty p {
+    max-width: 350px;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .projects-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    /* Sidebar spacing is handled by style.css */
+}
+
+@media (max-width: 640px) {
+
+    .projects-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .projects-toolbar {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}

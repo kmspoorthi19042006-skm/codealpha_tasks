@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="description"
+        content="ShopSphere - Your trusted online shopping destination for quality products at the best prices.">
+
+    <meta name="keywords"
+        content="ecommerce, online shopping, products, electronics, fashion, accessories">
+
+    <meta name="author" content="Spoorthi K M">
+
+    <title>ShopSphere | Premium Online Store</title>
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body>
+
+    <!-- ================= TOP BAR ================= -->
+
+    <div class="top-bar">
+        🚚 Free Shipping on Orders Above ₹999
+    </div>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="container navbar">
+
+            <!-- Logo -->
+
+            <a href="index.html" class="logo">
+                Shop<span>Sphere</span>
+            </a>
+
+
+            <!-- Navigation -->
+
+            <nav class="nav-links">
+
+                <a href="index.html" class="active">
+                    Home
+                </a>
+
+                <a href="#categories">
+                    Categories
+                </a>
+
+                <a href="#products">
+                    Products
+                </a>
+
+                <a href="orders.html">
+                    Orders
+                </a>
+
+            </nav>
+
+
+            <!-- Navigation Actions -->
+
+            <div class="nav-actions">
+
+                <!-- Cart -->
+
+                <a href="cart.html" class="cart-link">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    Cart
+
+                    <span id="cart-count" class="cart-count">
+                        0
+                    </span>
+
+                </a>
+
+
+                <!-- Login - Visible Before Login -->
+
+                <a
+                    href="login.html"
+                    id="login-link"
+                    class="btn btn-outline">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                    Login
+
+                </a>
+
+
+                <!-- Profile - Visible After Login -->
+
+                <a
+                    href="profile.html"
+                    id="profile-link"
+                    class="profile-link hidden"
+                    title="My Profile">
+
+                    <i class="fa-solid fa-circle-user"></i>
+
+                    <span>Profile</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="container hero-content">
+
+
+            <!-- Hero Text -->
+
+            <div class="hero-text">
+
+                <p class="hero-label">
+                    WELCOME TO SHOPSPHERE
+                </p>
+
+
+                <h1>
+                    Discover Products <br>
+                    You'll <span>Love.</span>
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Shop from a carefully curated collection of
+                    quality products with secure payments, quick
+                    delivery, and unmatched customer support.
+
+                </p>
+
+
+                <a
+                    href="#products"
+                    class="btn btn-primary">
+
+                    Explore Products →
+
+                </a>
+
+            </div>
+
+
+            <!-- Hero Visual -->
+
+            <div class="hero-visual">
+
+                <div class="hero-card">
+
+                    <div class="hero-icon">
+
+                        <i class="fa-solid fa-bag-shopping"></i>
+
+                    </div>
+
+
+                    <h3>
+                        Premium Shopping
+                    </h3>
+
+
+                    <p>
+                        Best quality products at affordable prices.
+                    </p>
+
+                </div>
+
+
+                <div class="floating-card floating-card-one">
+
+                    ⭐ 4.8/5 Customer Rating
+
+                </div>
+
+
+                <div class="floating-card floating-card-two">
+
+                    🚚 Fast Delivery
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats">
+
+        <div class="container stats-grid">
+
+
+            <div class="stat-card">
+
+                <h2>
+                    10K+
+                </h2>
+
+                <p>
+                    Happy Customers
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h2>
+                    500+
+                </h2>
+
+                <p>
+                    Products
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h2>
+                    4.8★
+                </h2>
+
+                <p>
+                    Average Rating
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <h2>
+                    99%
+                </h2>
+
+                <p>
+                    Satisfaction Rate
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CATEGORIES ================= -->
+
+    <section
+        class="categories"
+        id="categories">
+
+        <div class="container">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <p class="section-label">
+                        SHOP BY CATEGORY
+                    </p>
+
+                    <h2>
+                        Popular Categories
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="categories-grid">
+
+
+                <div
+                    class="category-card"
+                    data-category="Electronics">
+
+                    <i class="fa-solid fa-laptop"></i>
+
+                    <h3>
+                        Electronics
+                    </h3>
+
+                </div>
+
+
+                <div
+                    class="category-card"
+                    data-category="Fashion">
+
+                    <i class="fa-solid fa-shirt"></i>
+
+                    <h3>
+                        Fashion
+                    </h3>
+
+                </div>
+
+
+                <div
+                    class="category-card"
+                    data-category="Accessories">
+
+                    <i class="fa-solid fa-gem"></i>
+
+                    <h3>
+                        Accessories
+                    </h3>
+
+                </div>
+
+
+                <div
+                    class="category-card"
+                    data-category="Home">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <h3>
+                        Home
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features">
+
+        <div class="container features-grid">
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-truck"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Fast Delivery
+                    </h3>
+
+                    <p>
+                        Quick and reliable shipping nationwide.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-shield"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Secure Shopping
+                    </h3>
+
+                    <p>
+                        Your data remains safe and protected.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-credit-card"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Easy Payments
+                    </h3>
+
+                    <p>
+                        Multiple payment options available.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Quality Products
+                    </h3>
+
+                    <p>
+                        Carefully selected premium products.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <main
+        class="products-section"
+        id="products">
+
+        <div class="container">
+
+
+            <div class="section-header">
+
+
+                <div>
+
+                    <p class="section-label">
+                        OUR COLLECTION
+                    </p>
+
+                    <h2>
+                        Explore Products
+                    </h2>
+
+                </div>
+
+
+                <!-- Product Controls -->
+
+                <div class="product-controls">
+
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            id="search-input"
+                            placeholder="Search products...">
+
+                    </div>
+
+
+                    <select id="category-filter">
+
+                        <option value="all">
+                            All Categories
+                        </option>
+
+                    </select>
+
+
+                    <select id="sort-products">
+
+                        <option value="default">
+                            Sort By
+                        </option>
+
+                        <option value="price-low">
+                            Price: Low to High
+                        </option>
+
+                        <option value="price-high">
+                            Price: High to Low
+                        </option>
+
+                        <option value="newest">
+                            Newest
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Products will be loaded here by JavaScript -->
+
+            <div
+                id="products-container"
+                class="products-grid">
+
+                <div class="loading">
+
+                    Loading products...
+
+                </div>
+
+            </div>
+
+
+            <!-- No Products -->
+
+            <div
+                id="no-products"
+                class="empty-state hidden">
+
+                <div class="empty-icon">
+                    🔍
+                </div>
+
+
+                <h3>
+                    No products found
+                </h3>
+
+
+                <p>
+                    Try changing your search or category filter.
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= TRUST SECTION ================= -->
+
+    <section class="trust">
+
+        <div class="container trust-grid">
+
+
+            <div>
+                🔒 Secure Payments
+            </div>
+
+
+            <div>
+                🚚 Free Shipping
+            </div>
+
+
+            <div>
+                ↩️ Easy Returns
+            </div>
+
+
+            <div>
+                📞 24/7 Support
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TESTIMONIALS ================= -->
+
+    <section class="testimonials">
+
+        <div class="container">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <p class="section-label">
+                        CUSTOMER FEEDBACK
+                    </p>
+
+                    <h2>
+                        What Our Customers Say
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="testimonial-grid">
+
+
+                <div class="testimonial-card">
+
+                    <div class="testimonial-stars">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+
+                    <p>
+                        "Amazing shopping experience and very fast
+                        delivery."
+                    </p>
+
+                    <h4>
+                        Rahul Sharma
+                    </h4>
+
+                </div>
+
+
+                <div class="testimonial-card">
+
+                    <div class="testimonial-stars">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+
+                    <p>
+                        "Great product quality and excellent support."
+                    </p>
+
+                    <h4>
+                        Priya Verma
+                    </h4>
+
+                </div>
+
+
+                <div class="testimonial-card">
+
+                    <div class="testimonial-stars">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+
+                    <p>
+                        "Highly recommend ShopSphere to everyone."
+                    </p>
+
+                    <h4>
+                        Arjun Patel
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= NEWSLETTER ================= -->
+
+    <section class="newsletter">
+
+        <div class="container">
+
+
+            <h2>
+                Stay Updated
+            </h2>
+
+
+            <p>
+                Subscribe to receive the latest offers and updates.
+            </p>
+
+
+            <form
+                class="newsletter-form"
+                id="newsletter-form">
+
+                <input
+                    type="email"
+                    id="newsletter-email"
+                    placeholder="Enter your email"
+                    required>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary">
+
+                    Subscribe
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+
+            <!-- Brand -->
+
+            <div>
+
+                <a
+                    href="index.html"
+                    class="logo">
+
+                    Shop<span>Sphere</span>
+
+                </a>
+
+
+                <p>
+                    Premium online shopping made simple,
+                    secure, and reliable.
+                </p>
+
+            </div>
+
+
+            <!-- Quick Links -->
+
+            <div class="footer-links">
+
+                <h4>
+                    Quick Links
+                </h4>
+
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="#categories">
+                    Categories
+                </a>
+
+
+                <a href="#products">
+                    Products
+                </a>
+
+
+                <a href="orders.html">
+                    Orders
+                </a>
+
+
+                <a href="profile.html">
+                    Profile
+                </a>
+
+            </div>
+
+
+            <!-- Support -->
+
+            <div class="footer-links">
+
+                <h4>
+                    Support
+                </h4>
+
+
+                <a href="#">
+                    FAQs
+                </a>
+
+
+                <a href="#">
+                    Returns
+                </a>
+
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+
+                <a href="#">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 ShopSphere. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/api.js"></script>
+
+    <script src="js/auth.js"></script>
+
+    <script src="js/products.js"></script>
+
+
+    <!-- ================= AUTH NAVBAR ================= -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const loginLink =
+                document.getElementById("login-link");
+
+            const profileLink =
+                document.getElementById("profile-link");
+
+            const token =
+                localStorage.getItem("token");
+
+
+            if (token) {
+
+                /* User is logged in */
+
+                loginLink?.classList.add("hidden");
+
+                profileLink?.classList.remove("hidden");
+
+            } else {
+
+                /* User is not logged in */
+
+                loginLink?.classList.remove("hidden");
+
+                profileLink?.classList.add("hidden");
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

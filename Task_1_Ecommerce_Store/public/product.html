@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details | ShopSphere</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+       TOP BAR
+  ====================================================== -->
+  <div class="top-bar">
+    <div class="container">
+      <p><i class="fa-solid fa-truck"></i> Free shipping on orders above ₹999</p>
+      <p><i class="fa-solid fa-shield-halved"></i> Secure & trusted shopping</p>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       NAVBAR
+  ====================================================== -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo" aria-label="ShopSphere Home">
+        <span class="logo-icon"><i class="fa-solid fa-bag-shopping"></i></span>
+        <span>ShopSphere</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html">Home</a>
+        <a href="index.html#products">Products</a>
+        <a href="cart.html">
+          <i class="fa-solid fa-cart-shopping"></i> Cart
+          <span id="cart-count" aria-live="polite">0</span>
+        </a>
+        <a href="orders.html">Orders</a>
+        <a href="profile.html">Profile</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =====================================================
+       PRODUCT DETAILS
+  ====================================================== -->
+  <main class="product-details-page">
+    <div class="container">
+
+
+      <!-- Loading -->
+      <div id="product-loading" class="product-loading" role="status" aria-live="polite">
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        <p>Loading product details...</p>
+      </div>
+
+      <!-- Product -->
+      <section id="product-details" class="product-details hidden">
+        <!-- Product Image -->
+        <div class="product-details-image">
+          <div id="product-image-container">
+            <img id="product-image" src="" alt="Product Image">
+          </div>
+        </div>
+
+        <!-- Product Information -->
+        <div class="product-details-info">
+          <span id="product-category" class="details-category">Electronics</span>
+
+          <h1 id="product-name">Product Name</h1>
+
+          <div class="details-rating">
+            <span>⭐ <strong id="product-rating">4.8</strong></span>
+            <span class="rating-separator">•</span>
+            <span>Customer favourite</span>
+          </div>
+
+          <div id="product-price" class="details-price">₹0</div>
+          <div id="product-stock" class="details-stock"></div>
+
+          <hr class="details-divider">
+
+          <p id="product-description" class="details-description">Product description</p>
+
+          <!-- Quantity -->
+          <div class="quantity-section">
+            <label for="quantity">Quantity</label>
+            <div class="quantity-control">
+              <button type="button" id="decrease-quantity" aria-label="Decrease quantity">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <span id="quantity">1</span>
+              <button type="button" id="increase-quantity" aria-label="Increase quantity">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="details-actions">
+            <button id="add-to-cart-btn" class="btn btn-primary details-cart-btn">
+              <i class="fa-solid fa-cart-plus"></i> Add to Cart
+            </button>
+            <a href="cart.html" class="btn btn-outline">
+              <i class="fa-solid fa-cart-shopping"></i> View Cart
+            </a>
+          </div>
+
+          <!-- Benefits -->
+          <div class="product-benefits">
+            <div class="benefit-item">
+              <i class="fa-solid fa-truck-fast"></i>
+              <div>
+                <strong>Fast Delivery</strong>
+                <span>Reliable doorstep delivery</span>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <div>
+                <strong>Secure Payment</strong>
+                <span>Safe and secure checkout</span>
+              </div>
+            </div>
+            <div class="benefit-item">
+              <i class="fa-solid fa-rotate-left"></i>
+              <div>
+                <strong>Easy Returns</strong>
+                <span>Hassle-free return experience</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Error -->
+      <div id="product-error" class="product-error hidden" role="alert">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <h2>Product Not Found</h2>
+        <p>We couldn't find the product you're looking for.</p>
+        <a href="index.html#products" class="btn btn-primary">Browse Products</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 ShopSphere. All rights reserved.</p>
+        <p>Built for CodeAlpha Full Stack Development Internship</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/product.js"></script>
+</body>
+</html>

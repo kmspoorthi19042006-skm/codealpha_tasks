@@ -1,0 +1,150 @@
+<!DOCTYPE html>  <html lang="en">  <head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <title>Create Account | ShopSphere</title>    <!-- Fonts -->    <link rel="preconnect" href="https://fonts.googleapis.com" />  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />    <!-- Icons -->    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />    <!-- Main Styles -->    <link rel="stylesheet" href="css/style.css" />  
+</head>  <body class="register-body">  
+  <main class="register-page">  
+    <!-- LEFT BRAND PANEL -->  
+    <section class="register-brand-panel">  
+      <a href="index.html" class="register-logo" aria-label="ShopSphere Home">  
+        <span class="register-logo-icon"><i class="fa-solid fa-bag-shopping"></i></span>  
+        <span>ShopSphere</span>  
+      </a>  <div class="register-brand-content">  
+    <span class="register-eyebrow">JOIN SHOPSPHERE</span>  
+    <h1>  
+      Your shopping  
+      <span>journey starts here.</span>  
+    </h1>  
+    <p>  
+      Create your account and discover a smarter,  
+      simpler and more enjoyable way to shop.  
+    </p>  
+
+    <div class="register-features">  
+      <div class="register-feature">  
+        <span class="register-feature-icon"><i class="fa-solid fa-bag-shopping"></i></span>  
+        <div>  
+          <strong>Easy Shopping</strong>  
+          <small>Browse and manage your products effortlessly</small>  
+        </div>  
+      </div>  
+      <div class="register-feature">  
+        <span class="register-feature-icon"><i class="fa-solid fa-box"></i></span>  
+        <div>  
+          <strong>Track Your Orders</strong>  
+          <small>Keep all your purchases in one place</small>  
+        </div>  
+      </div>  
+      <div class="register-feature">  
+        <span class="register-feature-icon"><i class="fa-solid fa-shield-halved"></i></span>  
+        <div>  
+          <strong>Secure Account</strong>  
+          <small>Your account information stays protected</small>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+
+  <!-- Decorative circles -->  
+  <div class="register-decoration register-decoration-one"></div>  
+  <div class="register-decoration register-decoration-two"></div>  
+  <div class="register-decoration register-decoration-three"></div>  
+
+  <div class="register-brand-footer">  
+    <span>© 2026 ShopSphere</span>  
+    <span>Built for CodeAlpha</span>  
+  </div>  
+</section>  
+<!-- RIGHT REGISTRATION PANEL -->  
+<section class="register-form-panel">  
+  <div class="register-form-container">  
+    <!-- Mobile Logo -->  
+    <a href="index.html" class="mobile-register-logo">  
+      <span class="register-logo-icon"><i class="fa-solid fa-bag-shopping"></i></span>  
+      <span>ShopSphere</span>  
+    </a>  
+
+    <!-- Heading -->  
+    <div class="register-heading">  
+      <span class="register-label">GET STARTED</span>  
+      <h2>Create your account</h2>  
+      <p>Enter your details below to start shopping with ShopSphere.</p>  
+    </div>  
+
+    <!-- Registration Form -->  
+    <form id="register-form" novalidate>  
+      <!-- NAME -->  
+      <div class="register-form-group">  
+        <label for="name">Full name</label>  
+        <div class="register-input">  
+          <i class="fa-regular fa-user"></i>  
+          <input type="text" id="name" name="name" placeholder="Enter your full name" autocomplete="name" required />  
+        </div>  
+      </div>  
+
+      <!-- EMAIL -->  
+      <div class="register-form-group">  
+        <label for="email">Email address</label>  
+        <div class="register-input">  
+          <i class="fa-regular fa-envelope"></i>  
+          <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />  
+        </div>  
+      </div>  
+
+      <!-- PASSWORD -->  
+      <div class="register-form-group">  
+        <label for="password">Password</label>  
+        <div class="register-input">  
+          <i class="fa-solid fa-lock"></i>  
+          <input type="password" id="password" name="password" placeholder="Create a password" autocomplete="new-password" required />  
+          <button type="button" id="toggle-password" class="register-password-toggle" aria-label="Show password">  
+            <i class="fa-solid fa-eye"></i>  
+          </button>  
+        </div>  
+      </div>  
+
+      <!-- CONFIRM PASSWORD -->  
+      <div class="register-form-group">  
+        <label for="confirm-password">Confirm password</label>  
+        <div class="register-input">  
+          <i class="fa-solid fa-lock"></i>  
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" autocomplete="new-password" required />  
+          <button type="button" id="toggle-confirm-password" class="register-password-toggle" aria-label="Show password">  
+            <i class="fa-solid fa-eye"></i>  
+          </button>  
+        </div>  
+      </div>  
+
+      <!-- MESSAGE -->  
+      <div id="register-message" class="auth-message hidden" role="alert"></div>  
+
+      <!-- CREATE ACCOUNT -->  
+      <button type="submit" id="register-btn" class="register-submit-btn">  
+        <span>Create Account</span>  
+        <i class="fa-solid fa-arrow-right"></i>  
+      </button>  
+    </form>  
+
+    <!-- LOGIN LINK -->  
+    <div class="register-login">  
+      <span>Already have an account?</span>  
+      <a href="login.html">Sign in</a>  
+    </div>  
+
+    <!-- SECURITY -->  
+    <div class="register-security">  
+      <i class="fa-solid fa-shield-halved"></i>  
+      <span>Secure registration · Your data is protected</span>  
+    </div>  
+
+    <!-- BACK HOME -->  
+    <a href="index.html" class="register-back-home">  
+      <i class="fa-solid fa-arrow-left"></i> Back to ShopSphere  
+    </a>  
+  </div>  
+</section>
+
+  </main>    <!-- JAVASCRIPT -->    <script src="js/api.js"></script>    <script src="js/auth.js"></script>    <script src="js/register.js"></script>  </body>  
+</html>  Thiss register.html

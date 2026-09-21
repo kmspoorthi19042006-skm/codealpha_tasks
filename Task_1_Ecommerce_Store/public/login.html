@@ -1,0 +1,129 @@
+<!DOCTYPE html>  <html lang="en">  <head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Sign In | ShopSphere</title>    <!-- Fonts -->    <link rel="preconnect" href="https://fonts.googleapis.com">  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">    <!-- Icons -->    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">    <!-- Main Styles -->    <link rel="stylesheet" href="css/style.css">  
+</head>  <body class="login-body">    <main class="login-page">  <!-- LEFT BRAND PANEL -->  
+<section class="login-brand-panel">  
+
+  <a href="index.html" class="login-logo" aria-label="ShopSphere Home">  
+    <span class="login-logo-icon"><i class="fa-solid fa-bag-shopping"></i></span>  
+    <span>ShopSphere</span>  
+  </a>  
+
+  <div class="brand-content">  
+    <span class="brand-eyebrow">YOUR SHOPPING DESTINATION</span>  
+    <h1>  
+      Everything you need.  
+      <span>All in one place.</span>  
+    </h1>  
+    <p>  
+      Discover quality products, manage your orders,  
+      and enjoy a seamless shopping experience with ShopSphere.  
+    </p>  
+
+    <div class="brand-features">  
+      <div class="brand-feature">  
+        <span class="feature-icon"><i class="fa-solid fa-truck-fast"></i></span>  
+        <div>  
+          <strong>Fast Delivery</strong>  
+          <small>Reliable doorstep delivery</small>  
+        </div>  
+      </div>  
+      <div class="brand-feature">  
+        <span class="feature-icon"><i class="fa-solid fa-shield-halved"></i></span>  
+        <div>  
+          <strong>Secure Shopping</strong>  
+          <small>Your information stays protected</small>  
+        </div>  
+      </div>  
+      <div class="brand-feature">  
+        <span class="feature-icon"><i class="fa-solid fa-heart"></i></span>  
+        <div>  
+          <strong>Curated Products</strong>  
+          <small>Products selected for you</small>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+
+  <!-- Decorative elements -->  
+  <div class="login-decoration decoration-one"></div>  
+  <div class="login-decoration decoration-two"></div>  
+  <div class="login-decoration decoration-three"></div>  
+
+  <div class="brand-footer">  
+    <span>© 2026 ShopSphere</span>  
+    <span>Built for CodeAlpha</span>  
+  </div>  
+
+</section>  
+<!-- RIGHT LOGIN PANEL -->  
+<section class="login-form-panel">  
+  <div class="login-form-container">  
+
+    <a href="index.html" class="mobile-login-logo">  
+      <span class="login-logo-icon"><i class="fa-solid fa-bag-shopping"></i></span>  
+      <span>ShopSphere</span>  
+    </a>  
+
+    <div class="login-heading">  
+      <span class="login-label">WELCOME BACK</span>  
+      <h2>Sign in to your account</h2>  
+      <p>Enter your details below to continue shopping.</p>  
+    </div>  
+
+    <!-- LOGIN FORM -->  
+    <form id="login-form" novalidate>  
+      <!-- EMAIL -->  
+      <div class="login-form-group">  
+        <label for="email">Email address</label>  
+        <div class="login-input">  
+          <i class="fa-regular fa-envelope"></i>  
+          <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>  
+        </div>  
+      </div>  
+
+      <!-- PASSWORD -->  
+      <div class="login-form-group">  
+        <label for="password">Password</label>  
+        <div class="login-input">  
+          <i class="fa-solid fa-lock"></i>  
+          <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>  
+          <button type="button" id="toggle-password" class="login-password-toggle" aria-label="Show password">  
+            <i class="fa-solid fa-eye"></i>  
+          </button>  
+        </div>  
+      </div>  
+
+      <!-- LOGIN MESSAGE -->  
+      <div id="login-message" class="auth-message hidden" role="alert"></div>  
+
+      <!-- SIGN IN -->  
+      <button type="submit" id="login-btn" class="login-submit-btn">  
+        <span>Sign In</span>  
+        <i class="fa-solid fa-arrow-right"></i>  
+      </button>  
+    </form>  
+
+    <!-- REGISTER -->  
+    <div class="login-register">  
+      <span>Don't have an account?</span>  
+      <a href="register.html">Create an account</a>  
+    </div>  
+
+    <!-- SECURITY -->  
+    <div class="login-security">  
+      <i class="fa-solid fa-shield-halved"></i>  
+      <span>Secure login · Your data is protected</span>  
+    </div>  
+
+    <a href="index.html" class="back-home">  
+      <i class="fa-solid fa-arrow-left"></i> Back to ShopSphere  
+    </a>  
+  </div>  
+</section>
+
+  </main>    <!-- JAVASCRIPT -->    <script src="js/api.js"></script>    <script src="js/auth.js"></script>    <script src="js/login.js"></script>  </body>  
+</html>  Can j gi with this login.html
