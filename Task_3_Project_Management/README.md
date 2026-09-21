@@ -222,7 +222,6 @@ http://localhost:5002
 •Responsive SaaS-style interface
 
 ->Internship
-
 Developed as Task 3 of the CodeAlpha Full Stack Development Internship – September 2026 Batch.
 
 ->Author
