@@ -153,12 +153,10 @@ codealpha_tasks/
     └── README.md
 
 ->Internship
-
 CodeAlpha Full Stack Development Internship
 September 2026 Batch
 
 ->Author
-
 Spoorthi K M
 Computer Science and Engineering 
 Sapthagiri NPS University
