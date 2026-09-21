@@ -160,7 +160,6 @@ npm.cmd run dev
 •Responsive frontend
 
 ->Internship
-
 Developed as Task 2 of the CodeAlpha Full Stack Development Internship – September 2026 Batch.
 
 ->Author
